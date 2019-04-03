@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements IContractLogin.IV
 //        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 //        long [] patten = {100,200,100,200,100,500};
 //        vibrator.vibrate(patten,3);
+        String x = " ";
 
         utils = new MenuPopwindow(MainActivity.this,getLayoutInflater().inflate(R.layout.popwindow_loginout,null))
                 .setTvText(R.id.tv_loginout,"用户:李伟东")
