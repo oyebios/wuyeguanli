@@ -91,7 +91,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void showLoginFailed(boolean isShowReset) {
         Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
-//        if (isShowReset)
+//        if (isShowReset){
+//            btn_reset.setVisibility();
+//        }
+
     }
 
     @Override
