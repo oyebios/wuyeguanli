@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UserName:"/>
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:maxLines="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_pw"
+        android:layout_below="@+id/ll_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PassWord:"/>
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:maxLines="1"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="10sp"
+        android:text="let's go"
+        android:textColor="@drawable/selector_text_normal"
+        android:background="@color/white"
+        android:layout_below="@+id/ll_pw"
+        />
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="10sp"
+        android:text="exit"
+        android:textColor="@drawable/selector_text_normal"
+        android:background="@color/white"
+        android:layout_below="@+id/btn_login"
+        />
+
+</RelativeLayout>

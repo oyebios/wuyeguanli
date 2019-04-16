@@ -20,13 +20,13 @@ public class IPresenterLogin implements IContractLogin.IPresnter {
 
     @Override
     public void LoginIn(String name, String password) {
-        Observable<String> observable = new BaseHttpLoader().getMovies();
-        observable.subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                view.showLoginSuccess(s);
-            }
-        });
-
+        view.showLoginSuccess("添加成功");
+//        Observable<String> observable = new ().getMovies();
+//        observable.subscribe(new Consumer<String>() {
+//            @Override
+//            public void accept(String s) throws Exception {
+//                view.showLoginSuccess(s);
+//            }
+//        });
     }
 }

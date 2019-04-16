@@ -1,7 +1,7 @@
 package test.cn.sjz.testproject.Login.contract;
 
-import test.cn.sjz.testproject.base.IPresenterBase;
-import test.cn.sjz.testproject.base.IViewBase;
+import test.cn.sjz.testproject.base.baseview.IPresenterBase;
+import test.cn.sjz.testproject.base.baseview.IViewBase;
 
 /**
  * Created by lwd on 2019/3/14.

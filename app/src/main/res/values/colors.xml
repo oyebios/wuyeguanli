@@ -7,4 +7,5 @@
     <color name="app_main_color">@color/china_red</color>
     <color name="china_red">#F14845</color>
     <color name="text_deliver_name">#1D1D26</color>
+    <color name="main_bg_color">#efefef</color>
 </resources>

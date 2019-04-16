@@ -1,15 +1,28 @@
 package test.cn.sjz.testproject;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Outline;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +42,15 @@ import test.cn.sjz.testproject.Login.contract.IContractLogin;
 import test.cn.sjz.testproject.Login.presenter.IPresenterLogin;
 import test.cn.sjz.testproject.Net.HttpService;
 import test.cn.sjz.testproject.Net.RetrofitFactory;
+import test.cn.sjz.testproject.Utils.FileChooseUtil;
+import test.cn.sjz.testproject.base.ARouterPath;
 import test.cn.sjz.testproject.model.BoxTypeCapBean;
+import test.cn.sjz.testproject.model.Parcelable.TestData;
 import test.cn.sjz.testproject.ui.ui.MenuPopwindow;
 import test.cn.sjz.testproject.ui.adapter.ZeroCapabilityAdapter;
 import test.cn.sjz.testproject.ui.ui.RadioGroupLayout;
 
+@Route(path = ARouterPath.ACTIVITY_MAIN)
 public class MainActivity extends AppCompatActivity implements IContractLogin.IViewLogin{
     IContractLogin.IPresnter iPresnter;
     boolean isfirst=true;
@@ -45,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements IContractLogin.IV
     EditText et;
     private MenuPopwindow utils;
     RadioGroupLayout radioGroupLayout;
+
+    public  static final  int REQUEST_CHOOSEFILE = 222;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,34 +72,77 @@ public class MainActivity extends AppCompatActivity implements IContractLogin.IV
         tv = (TextView) findViewById(R.id.tv_1);
         et= (EditText)findViewById(R.id.et_1);
         String strTest = "";
-//       testListView();
-//        testRxjava();
-//        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-//        long [] patten = {100,200,100,200,100,500};
-//        vibrator.vibrate(patten,3);
-        String x = " ";
-
-        utils = new MenuPopwindow(MainActivity.this,getLayoutInflater().inflate(R.layout.popwindow_loginout,null))
-                .setTvText(R.id.tv_loginout,"用户:李伟东")
-                .setFocusable(true)
-                .setBackground(getResources().getDrawable(R.drawable.zero_capability_shape_selected))
-                .setOutsideTouchable(true)
-                .setClickListener(R.id.btn_out, true,new MenuPopwindow.OnClickCallBack() {
-                    @Override
-                    public void OnClick() {
-                        Toast.makeText(MainActivity.this, "退出登录", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
+        ImageView imageView = new ImageView(this);
 
     }
 
+//    public EventBus
     public void test(View v){
+        ARouter.getInstance().build(ARouterPath.ACTIVITY_LOGIN).navigation(this,1);
+//            ViewOutlineProvider outlineProvider = new ViewOutlineProvider() {
+//            @Override
+//            public void getOutline(View view, Outline outline) {
+//                outline.setOval(0,0,view.getWidth(),view.getHeight());
+//            }
+//        };
+//        RelativeLayout rl_1 = (RelativeLayout)findViewById(R.id.rl_1);
+//        rl_1.setOutlineProvider(outlineProvider);
+//        rl_1.setClipToOutline(true);
+//
+//        ViewOutlineProvider outlineProvider2 = new ViewOutlineProvider() {
+//            @Override
+//            public void getOutline(View view, Outline outline) {
+//                outline.setOval(0,0,view.getWidth(),view.getHeight());
+//            }
+//        };
+//        RelativeLayout rl_2 = (RelativeLayout)findViewById(R.id.rl_2);
+//
+//        rl_2.setOutlineProvider(outlineProvider);
+//        rl_2.setClipToOutline(true);
 
 //        utils.showAsDropdown(tv);
 //        iPresnter.LoginIn("hah ");
 //        name = et.getText().toString();
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("image/*");//选择图片
+//        //intent.setType(“audio/*”); //选择音频
+//        //intent.setType(“video/*”); //选择视频 （mp4 3gp 是android支持的视频格式）
+//        //intent.setType(“video/*;image/*”);//同时选择视频和图片
+//        intent.setType("*/*");//无类型限制
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        startActivityForResult(intent, REQUEST_CHOOSEFILE);
+
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){//选择文件返回
+        super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode==RESULT_OK){
+        switch(requestCode){
+            case REQUEST_CHOOSEFILE:
+              Uri uri=data.getData();
+               String chooseFilePath= FileChooseUtil.getInstance(this).getChooseFileResultPath(uri);
+              Log.d("testfile choose","选择文件返回："+chooseFilePath);
+               break;
+            case 1:
+                TestData data1 = data.getParcelableExtra("data");
+                int i = 0;
+                break;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
     public void testRxjava(){
         Observer<String> observer = new Observer<String>() { // 第三步：订阅
 
