@@ -51,8 +51,7 @@ import test.cn.sjz.testproject.ui.adapter.ZeroCapabilityAdapter;
 import test.cn.sjz.testproject.ui.ui.RadioGroupLayout;
 
 @Route(path = ARouterPath.ACTIVITY_MAIN)
-public class MainActivity extends AppCompatActivity implements IContractLogin.IViewLogin{
-    IContractLogin.IPresnter iPresnter;
+public class MainActivity extends AppCompatActivity {
     boolean isfirst=true;
     String name ;
     ListView listView;
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements IContractLogin.IV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        iPresnter = new IPresenterLogin(this);
         tv = (TextView) findViewById(R.id.tv_1);
         et= (EditText)findViewById(R.id.et_1);
         String strTest = "";
@@ -181,17 +179,6 @@ public class MainActivity extends AppCompatActivity implements IContractLogin.IV
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
-
-    @Override
-    public void showLoginSuccess(String s) {
-        Toast.makeText(this,s, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void setPresenter(IContractLogin.IPresnter iPresnter2) {
-        iPresnter=iPresnter2;
-    }
-
 
 
 

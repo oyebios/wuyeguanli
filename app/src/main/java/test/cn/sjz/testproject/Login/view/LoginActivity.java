@@ -16,6 +16,7 @@ import test.cn.sjz.testproject.base.ARouterPath;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
 import test.cn.sjz.testproject.model.Parcelable.TestData;
 import test.cn.sjz.testproject.model.Parcelable.UserInfo;
+import test.cn.sjz.testproject.model.Serializable.LocalUserInfo;
 
 /**
  * Created by lwd on 2019/3/14.
@@ -67,13 +68,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 if (username.equals("")||pw.equals("")){
                     Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
                 }else {
-                    UserInfo userInfo = new UserInfo();
+                    LocalUserInfo userInfo = new LocalUserInfo();
                     userInfo.setPassWord(pw);
                     userInfo.setUserName(username);
-                    testData.setUser(userInfo);
-                    testData.getList().add(userInfo);
-                    testData.getListString().add(String.valueOf(index));
-                    iPresnter.LoginIn(username,pw);
+                    iPresnter.LoginIn(userInfo);
                 }
                 break;
             case R.id.btn_exit:
@@ -87,7 +85,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void showLoginSuccess(String s) {
-        Log.d("testParcelable",s);
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showLoginFailed(boolean isShowReset) {
+        Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+//        if (isShowReset)
     }
 
     @Override
