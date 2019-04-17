@@ -32,6 +32,7 @@ public class IPresenterLogin implements IContractLogin.IPresnter {
         }else {
             if (PreferUtil.getInstance().getString("passWord","").equals(userInfo.getPassWord())
                     &&PreferUtil.getInstance().getString("userName","").equals(userInfo.getUserName())){
+                PreferUtil.getInstance().putInt("pwErrorTimes",0);
                 view.showLoginSuccess("登录成功");
             }else {
                 int time = PreferUtil.getInstance().getInt("pwErrorTimes",0);

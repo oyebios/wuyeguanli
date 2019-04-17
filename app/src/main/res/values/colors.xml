@@ -8,4 +8,8 @@
     <color name="china_red">#F14845</color>
     <color name="text_deliver_name">#1D1D26</color>
     <color name="main_bg_color">#efefef</color>
+    <color name="btn_pressed">#8fffffff</color>
+    <color name="btn_unpressed">#ffffff</color>
+    <color name="btn_unable_press">#0fffffff</color>
+    <color name="light_text_color">#5F81B5</color>
 </resources>

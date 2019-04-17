@@ -4,5 +4,5 @@
         android:radius="25dp"
         />
     <solid
-        android:color="@color/china_red"/>
+        android:color="@color/btn_unpressed"/>
 </shape>

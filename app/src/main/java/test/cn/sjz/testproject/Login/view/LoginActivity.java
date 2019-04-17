@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import test.cn.sjz.testproject.Login.contract.IContractLogin;
 import test.cn.sjz.testproject.Login.presenter.IPresenterLogin;
 import test.cn.sjz.testproject.R;
+import test.cn.sjz.testproject.Utils.PreferUtil;
 import test.cn.sjz.testproject.base.ARouterPath;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
 import test.cn.sjz.testproject.model.Parcelable.TestData;
@@ -27,7 +28,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private TestData testData = new TestData();
     private IContractLogin.IPresnter iPresnter;
     private EditText et_username, et_pw;
-    private Button btn_login,btn_exit;
+    private Button btn_login,btn_reset;
     int index = 0;
 
     private String username,pw;
@@ -41,7 +42,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         et_username = (EditText) findViewById(R.id.et_username);
         et_pw = (EditText) findViewById(R.id.et_password);
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_exit = (Button) findViewById(R.id.btn_exit);
+        btn_reset = (Button) findViewById(R.id.btn_exit);
 
 
     }
@@ -55,7 +56,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void iniListener() {
         btn_login.setOnClickListener(this);
-        btn_exit.setOnClickListener(this);
+        btn_reset.setOnClickListener(this);
     }
 
     @Override
@@ -74,11 +75,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     iPresnter.LoginIn(userInfo);
                 }
                 break;
-            case R.id.btn_exit:
-                Intent intent = new Intent();
-                intent.putExtra("data",testData);
-                setResult(RESULT_OK,intent);
-                finish();
+            case R.id.btn_reset:
+                PreferUtil.getInstance().putInt("pwErrorTimes",0);
+                PreferUtil.getInstance().putString("userName","");
+                btn_reset.setVisibility(View.GONE);
                 break;
         }
     }
@@ -91,9 +91,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void showLoginFailed(boolean isShowReset) {
         Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
-//        if (isShowReset){
-//            btn_reset.setVisibility();
-//        }
+        if (isShowReset){
+            btn_reset.setVisibility(View.VISIBLE);
+        }else btn_reset.setVisibility(View.GONE);
 
     }
 
