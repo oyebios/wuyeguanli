@@ -19,7 +19,7 @@ public class FictonHttpLoader extends BaseHttpLoader{
         return subscribe(service.getIndex());
     }
     interface FictionService{
-        @GET
+        @GET("/get")
         Observable<String> getIndex();
     }
 }

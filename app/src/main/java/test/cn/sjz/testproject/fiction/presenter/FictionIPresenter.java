@@ -18,12 +18,12 @@ public class FictionIPresenter implements FictionContract.IPresenter {
     }
     @Override
     public void getIndex() {
-        Observable<String> observable = new FictonHttpLoader().getIndex();
-        observable.subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                view.showIndex(s);
-            }
-        });
+//        Observable<String> observable = new FictonHttpLoader().getIndex();
+//        observable.subscribe(new Consumer<String>() {
+//            @Override
+//            public void accept(String s) throws Exception {
+//                view.showIndex(s);
+//            }
+//        });
     }
 }

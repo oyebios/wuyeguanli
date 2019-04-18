@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import test.cn.sjz.testproject.Login.contract.IContractLogin;
 import test.cn.sjz.testproject.Login.presenter.IPresenterLogin;
@@ -42,7 +43,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         et_username = (EditText) findViewById(R.id.et_username);
         et_pw = (EditText) findViewById(R.id.et_password);
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_reset = (Button) findViewById(R.id.btn_exit);
+        btn_reset = (Button) findViewById(R.id.btn_reset);
 
 
     }
@@ -86,6 +87,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void showLoginSuccess(String s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+        ARouter.getInstance().build(ARouterPath.ACTIVITY_FICTION).navigation();
     }
 
     @Override

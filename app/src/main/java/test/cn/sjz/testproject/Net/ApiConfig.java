@@ -5,5 +5,5 @@ package test.cn.sjz.testproject.Net;
  */
 
 public class ApiConfig {
-    public static final String BASE_URL = "www.baidu.com/";
+    public static final String BASE_URL = "http://www.baidu.com/";
 }

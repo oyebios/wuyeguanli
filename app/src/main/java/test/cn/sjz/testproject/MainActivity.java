@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 //    public EventBus
     public void test(View v){
-//        ARouter.getInstance().build(ARouterPath.ACTIVITY_ASCII).navigation(this,1);
+        ARouter.getInstance().build(ARouterPath.ACTIVITY_LOGIN).navigation(this,1);
 //            ViewOutlineProvider outlineProvider = new ViewOutlineProvider() {
 //            @Override
 //            public void getOutline(View view, Outline outline) {
@@ -101,14 +101,14 @@ public class MainActivity extends AppCompatActivity {
 //        utils.showAsDropdown(tv);
 //        iPresnter.LoginIn("hah ");
 //        name = et.getText().toString();
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");//选择图片
-        //intent.setType(“audio/*”); //选择音频
-        //intent.setType(“video/*”); //选择视频 （mp4 3gp 是android支持的视频格式）
-        //intent.setType(“video/*;image/*”);//同时选择视频和图片
-        intent.setType("*/*");//无类型限制
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        startActivityForResult(intent, REQUEST_CHOOSEFILE);
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("image/*");//选择图片
+//        //intent.setType(“audio/*”); //选择音频
+//        //intent.setType(“video/*”); //选择视频 （mp4 3gp 是android支持的视频格式）
+//        //intent.setType(“video/*;image/*”);//同时选择视频和图片
+//        intent.setType("*/*");//无类型限制
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        startActivityForResult(intent, REQUEST_CHOOSEFILE);
 
 
     }
