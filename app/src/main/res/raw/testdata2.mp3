@@ -1,0 +1,38 @@
+{"returnCode":0,"boxSpecsInfo": [{
+                                                               	"specsType": "06#",
+                                                               	"boxCount": 0,
+                                                               	"boxCountMax": 100},{
+                                                               	"specsType": "10#",
+                                                               	"boxCount": 0,
+                                                               	"boxCountMax": 100},{
+                                                               	"specsType": "05#",
+                                                               	"boxCount": 1,
+                                                               	"boxCountMax": 100}],"list": [ {
+                                                               	"labelId": 32,
+                                                               	"boxCode": "87424853908115780508",
+                                                               	"zipCode": "C744-M530-G117-A058",
+                                                               	"boxSpecsType": "05#",
+                                                               	"boxSpecsSize": "30cm*30cm*16cm",
+                                                               	"currentStatus": 2,
+                                                               	"currentUserPhoneNumber": "13212345678",
+                                                               	"currentUserName": "",
+                                                               	"updateTime": "2018-04-19 14:51:17"},
+{
+                                                               	"labelId": 32,
+                                                               	"boxCode": "87424853908115780508",
+                                                               	"zipCode": "C744-M530-G117-A058",
+                                                               	"boxSpecsType": "05#",
+                                                               	"boxSpecsSize": "30cm*30cm*16cm",
+                                                               	"currentStatus": 2,
+                                                               	"currentUserPhoneNumber": "13212345678",
+                                                               	"currentUserName": "",
+                                                               	"updateTime": "2019-04-19 14:51:17"},{
+                                                               	"labelId": 32,
+                                                               	"boxCode": "87424853908115780508",
+                                                               	"zipCode": "C744-M530-G117-A058",
+                                                               	"boxSpecsType": "05#",
+                                                               	"boxSpecsSize": "30cm*30cm*16cm",
+                                                               	"currentStatus": 2,
+                                                               	"currentUserPhoneNumber": "13212345678",
+                                                               	"currentUserName": "",
+                                                               	"updateTime": "2019-01-01 00:00:00"}]}

@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".AcitivtyAscII"/>
         <activity android:name=".fiction.view.FictionActivity"/>
+        <activity android:name=".Music.ActivityPiano"/>
         <activity android:name=".ActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,4 +9,5 @@ public class ARouterPath {
     public static final String ACTIVITY_LOGIN = "/activity/activity_login";
     public static final String ACTIVITY_FICTION = "/activity/activity_fiction";
     public static final String ACTIVITY_ASCII = "/activity/activity_ascii";
+    public static final String ACTIVITY_PIANO = "/activity/activity_piano";
 }

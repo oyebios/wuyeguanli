@@ -8,23 +8,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import test.cn.sjz.testproject.base.baseview.BaseFragment;
+
 /**
  * Created by lwd on 2019/4/18.
  */
 
-public class FragmentMain extends Fragment{
-    private View mRootView;
-    @Nullable
+public class FragmentMain extends BaseFragment{
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mRootView = inflater.inflate(R.layout.fragment_main,container,false);
-        initView();
-        return mRootView;
+    protected int getLayoutId() {
+        return R.layout.fragment_main;
     }
 
-    private void initView() {
+    @Override
+    protected void initData() {
 
     }
 
+    @Override
+    protected void initView() {
+
+    }
 
 }

@@ -5,7 +5,8 @@
     <EditText
         android:id="@+id/et_search"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:hint="haha "
+        android:layout_height="200dp" />
     <ListView
         android:id="@+id/lv_result"
         android:layout_width="match_parent"

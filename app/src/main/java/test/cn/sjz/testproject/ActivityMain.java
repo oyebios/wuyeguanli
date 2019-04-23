@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -21,10 +22,12 @@ import test.cn.sjz.testproject.base.baseview.BaseActivity;
 
 public class ActivityMain extends BaseActivity {
     private DrawerLayout drawerLayout;
-    private FrameLayout fgContent;
     private Fragment fragmentMain ;
     private View rl_menu;
     private RelativeLayout rlLeftMenu;
+
+    private LinearLayout llTitle;
+    private CheckBox checkBox;
 
 
     @Override
@@ -35,17 +38,19 @@ public class ActivityMain extends BaseActivity {
     @Override
     public void initView() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        fgContent = (FrameLayout) findViewById(R.id.content_layout);
         rl_menu = getLayoutInflater().inflate(R.layout.layout_left_menu,null);
         rlLeftMenu = (RelativeLayout) findViewById(R.id.main_left_drawer_layout);
         fragmentMain = new FragmentMain();
         FragmentManager fragmentManager  = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.content_layout,fragmentMain).commit();
+        fragmentManager.beginTransaction().add(R.id.vp_content,fragmentMain).commit();
 
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         rlLeftMenu.addView(rl_menu,params);
 
+
+        llTitle = (LinearLayout)findViewById(R.id.ll_title);
+        checkBox = (CheckBox)findViewById(R.id.cb_test);
     }
 
     @Override
@@ -55,7 +60,13 @@ public class ActivityMain extends BaseActivity {
 
     @Override
     public void iniListener() {
-
+        llTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean l  = checkBox.isChecked();
+                checkBox.setChecked(!l);
+            }
+        });
     }
 
 }
