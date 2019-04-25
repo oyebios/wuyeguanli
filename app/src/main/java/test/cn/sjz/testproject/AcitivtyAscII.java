@@ -19,8 +19,7 @@ import static test.cn.sjz.testproject.base.ARouterPath.ACTIVITY_ASCII;
 @Route(path = ACTIVITY_ASCII)
 public class AcitivtyAscII extends Activity{
     static String ascii = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\\\"^`'.";
-    static String base = "@#&$%*o!;.";//小帅丶使用这个字符
-    //main方法调用
+    static String base = "@#&$%*o!;.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

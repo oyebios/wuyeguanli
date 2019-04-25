@@ -34,14 +34,14 @@
                 android:focusable="false"
                 android:checked="false"/>
         </LinearLayout>
-        <android.support.v4.view.ViewPager
+        <RelativeLayout
             android:id="@+id/vp_content"
             android:layout_below="@+id/ll_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent">
+            android:background="@color/white">
 
-        </android.support.v4.view.ViewPager>
+        </RelativeLayout>
     </RelativeLayout>
 
     <!-- 左侧滑动栏 -->

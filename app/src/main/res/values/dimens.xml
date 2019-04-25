@@ -1,5 +1,406 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--广告栏高度-->
+    <dimen name="adv_bar_height">92dp</dimen>
+
+    <dimen name="logo_text_size_width">115dp</dimen>
+    <dimen name="logo_size">25dp</dimen>
+    <dimen name="login_round_btn_size">50dp</dimen>
+    <dimen name="login_round_btn_size_big">51dp</dimen>
+
+    <dimen name="activity_header_height">48dp</dimen>
+    <dimen name="activity_bottom_height">48dp</dimen>
+    <dimen name="activity_edge_width">2dp</dimen>
+    <dimen name="activity_ctrl_height_big">64dp</dimen>
+    <dimen name="activity_ctrl_height">48dp</dimen>
+    <dimen name="activity_ctrl_height_small">42dp</dimen>
+    <dimen name="activity_block_height">73dp</dimen>
+    <dimen name="activity_block_height_small">64dp</dimen>
+    <dimen name="activity_block_height_small2">56dp</dimen>
+    <dimen name="activity_block_height_tiny">48dp</dimen>
+
+    <dimen name="edt_height_normal">48dp</dimen>
+    <dimen name="edt_height_small">32dp</dimen>
+
+    <dimen name="edt_width_big">100dp</dimen>
+    <dimen name="edt_width_normal">82dp</dimen>
+    <dimen name="edt_width_small">48dp</dimen>
+
+    <dimen name="ctrl_height_big">48dp</dimen>
+    <dimen name="ctrl_height">32dp</dimen>
+
+    <dimen name="ctrl_width_big">64dp</dimen>
+    <dimen name="ctrl_width_normal">48dp</dimen>
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="ctrl_size_interval_grant">47dp</dimen>
+
+    <dimen name="ctrl_size_interval_bigger">32dp</dimen>
+    <dimen name="ctrl_size_interval_big">24dp</dimen>
+    <dimen name="ctrl_size_interval_normal">16dp</dimen>
+    <dimen name="ctrl_size_interval_normal_small">15dp</dimen>
+    <dimen name="ctrl_size_interval_middle">13dp</dimen>
+    <dimen name="ctrl_size_interval_small_big">10dp</dimen>
+    <dimen name="ctrl_size_interval_small">9dp</dimen>
+    <dimen name="ctrl_size_interval_tiny">5dp</dimen>
+    <dimen name="ctrl_size_interval_super_tiny">3dp</dimen>
+
+    <dimen name="miniute_top_margin">8dp</dimen>
+    <dimen name="main_top_margin">20dp</dimen>
+    <dimen name="main_botton_margin">40dp</dimen>
+
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+
+    <dimen name="title_btn_size">20dp</dimen>
+
+    <dimen name="back_btn_width">48dp</dimen>
+    <dimen name="text_border_size">64dp</dimen>
+    <dimen name="map_height_normal">178dp</dimen>
+
+    <dimen name="circle_width_height">120dp</dimen>
+
+    <dimen name="title_main_logo_width">43dp</dimen>
+    <dimen name="title_main_logo_height">21dp</dimen>
+
+    <dimen name="divider_element_other">7dp</dimen>
+    <dimen name="padding_with_left">25dp</dimen>
+    <dimen name="ctrl_interval_left_or_right">24dp</dimen>
+    <dimen name="padding_top">17dp</dimen>
+    <dimen name="padding_top_small">16dp</dimen>
+    <dimen name="relativeLayout_padding_distance">17dp</dimen>
+
+    <dimen name="nodal_point_list_item_margin">17dp</dimen>
+    <dimen name="nodal_point_list_location">17dp</dimen>
+    <dimen name="distance_between_rows">17dp</dimen>
+    <dimen name="distance_between_rows_small">13dp</dimen>
+
+
+    <dimen name="icon_size_normal_big">59dp</dimen>
+    <dimen name="icon_size_normal">41dp</dimen>
+    <dimen name="icon_size_small">28dp</dimen>
+    <dimen name="icon_size_tiny">14dp</dimen>
+    <dimen name="icon_size_tiny_small">12dp</dimen>
+    <dimen name="icon_size_tiny_normal">13dp</dimen>
+
+    <dimen name="text_distance">12dp</dimen>
+    <dimen name="text_pick_up_button">19dp</dimen>
+
+    <dimen name="image_size_person_header">54dp</dimen>
+    <dimen name="click_block_width">52dp</dimen>
+    <dimen name="image_size_big">90dp</dimen>
+    <dimen name="image_size_normal">72dp</dimen>
+    <dimen name="image_size_middle">42dp</dimen>
+    <dimen name="image_size_small">32dp</dimen>
+    <dimen name="image_size_tiny_big">19dp</dimen>
+    <dimen name="image_size_tiny">18dp</dimen>
+    <dimen name="image_size_super_tiny">14dp</dimen>
+
+    <!--侧边栏图标大小-->
+    <dimen name="icon_left_menu_width">21dp</dimen>
+    <dimen name="icon_left_menu_height">21dp</dimen>
+
+    <dimen name="divider_line_width">1dp</dimen>
+    <dimen name="divider_line_width_px">1px</dimen>
+    <dimen name="divider_line_width_px_05">0.5px</dimen>
+    <dimen name="divider_line_width_small">1px</dimen>
+    <dimen name="menu_item_row_height">52dp</dimen>
+
+    <dimen name="distance_between_icon_and_text">5dp</dimen>
+    <dimen name="distance_between_image">27dp</dimen>
+    <!--实名认证身份证大小-->
+    <dimen name="image_size_id_card">200dp</dimen>
+    <dimen name="id_card_size_height">89dp</dimen>
+    <!--边缘距离-->
+    <dimen name="distance_top_and_bottom_edge">9dp</dimen>
+    <dimen name="distance_dialog_edge">14dp</dimen>
+    <dimen name="dialog_edge_padding">24dp</dimen>
+    <dimen name="dialog_edge_padding_big">48dp</dimen>
+    <dimen name="dialog_spacing">24dp</dimen>
+
+    <!--可点击的图片大小-->
+    <dimen name="click_block_size">18dp</dimen>
+    <dimen name="click_block_size_middle">14dp</dimen>
+    <dimen name="click_block_size_small">6dp</dimen>
+
+    <!--返回箭头的大小-->
+    <dimen name="image_arrow_back_width">8dp</dimen>
+    <dimen name="image_arrow_back_height">15dp</dimen>
+    <!--向下箭头的大小-->
+    <dimen name="image_arrow_down_width">13dp</dimen>
+    <dimen name="image_arrow_down_height">7dp</dimen>
+
+    <!--下一步箭头的大小-->
+    <dimen name="image_arrow_right_width">7dp</dimen>
+    <dimen name="image_arrow_right_height">12dp</dimen>
+    <!--下一步箭头的大小small-->
+    <dimen name="image_arrow_right_width_small">5dp</dimen>
+    <dimen name="image_arrow_right_height_small">10dp</dimen>
+
+
+    <!--以下是定义字体的大小，以后字体大小变更统一修改此变量-->
+    <!--字体大小 交易金额-->
+    <dimen name="text_size_money_huge">39sp</dimen>
+    <dimen name="text_size_money_big">38sp</dimen>
+    <dimen name="text_size_money_normal">34sp</dimen>
+    <dimen name="text_size_money">28sp</dimen>
+    <dimen name="text_size_money_middle">24sp</dimen>
+    <dimen name="text_size_money_small">18sp</dimen>
+    <!--字体大小 标题-->
+    <dimen name="text_size_title_most">28sp</dimen>
+    <dimen name="text_size_title_super">23sp</dimen>
+    <dimen name="text_size_title_big">22sp</dimen>
+    <dimen name="text_size_title_pay">20sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_title_small">17sp</dimen>
+
+
+
+    <!--字体大小 签收码-->
+    <dimen name="text_size_signcode">20sp</dimen>
+    <!--字体大小 页面内容-->
+    <dimen name="text_size_content_huge">19sp</dimen>
+    <dimen name="text_size_content_big">16sp</dimen>
+    <dimen name="text_size_content">15sp</dimen>
+    <dimen name="text_size_content_middle">14sp</dimen>
+    <dimen name="text_size_content_small">13sp</dimen>
+    <dimen name="text_size_content_tiny_big">12sp</dimen>
+    <dimen name="text_size_content_tiny">11sp</dimen>
+    <dimen name="text_size_content_tiny2">10sp</dimen>
+    <dimen name="text_size_tips">13sp</dimen>
+    <!--字体大小 按钮-->
+    <dimen name="text_size_btn">16sp</dimen>
+    <dimen name="text_size_btn_small">14sp</dimen>
+
+    <dimen name="arrow_size_normal">18dp</dimen>
+    <dimen name="arrow_size_small">14dp</dimen>
+    <dimen name="arrow_size_tiny">12dp</dimen>
+
+    <!--按钮高度-->
+    <dimen name="btn_height_normal">48dp</dimen>
+    <dimen name="btn_height_normal_small">46dp</dimen>
+    <dimen name="btn_height">44dp</dimen>
+    <dimen name="btn_height_middle">42dp</dimen>
+    <dimen name="btn_height_small">36dp</dimen>
+    <dimen name="btn_height_tiny">24dp</dimen>
+
+    <!--页面标题栏高度-->
+    <dimen name="page_header_height">48dp</dimen>
+    <!--页面中行的高度-->
+    <dimen name="page_row_height">49dp</dimen>
+    <!--对话框item的高度-->
+    <dimen name="dialog_row_height">48dp</dimen>
+
+    <!--身份证高宽-->
+    <dimen name="id_card_width">128dp</dimen>
+    <dimen name="id_card_height">81dp</dimen>
+
+    <dimen name="icon_width_big">44dp</dimen>
+    <dimen name="icon_height_big">44dp</dimen>
+
+    <!--分享图标的大小-->
+    <dimen name="icon_size">50dp</dimen>
+
+    <dimen name="padding_dialog">25dp</dimen>
+
+    <!--客服弹框-->
+    <dimen name="ctrl_margin_big">50dp</dimen>
+    <dimen name="ctrl_margin_big_middle">45dp</dimen>
+    <dimen name="ctrl_margin_big_small">41dp</dimen>
+    <dimen name="ctrl_margin_normal_big">43dp</dimen>
+    <dimen name="ctrl_margin_normal">26dp</dimen>
+    <dimen name="ctrl_margin_normal_small">25dp</dimen>
+    <dimen name="icon_size_big">106dp</dimen>
+
+    <!--刷新按钮-->
+    <dimen name="icon_refresh">47dp</dimen>
+    <dimen name="icon_reset_location">42dp</dimen>
+
+    <!--费用明细弹出框布局-->
+    <dimen name="dialog_margin_other">36dp</dimen>
+    <dimen name="dialog_margin_inner_other">24dp</dimen>
+
+    <!--我的快盆列表-->
+    <dimen name="mybox_ctrl_interval_normal">19dp</dimen>
+    <dimen name="mybox_ctrl_interval_middle">17dp</dimen>
+    <dimen name="mybox_ctrl_interval_small">12dp</dimen>
+
+    <dimen name="icon_call_width_big">20dp</dimen>
+    <dimen name="icon_call_width">17dp</dimen>
+    <dimen name="icon_location_width">20dp</dimen>
+    <dimen name="icon_location_height">20dp</dimen>
+    <dimen name="dialog_margin_left_right">48dp</dimen>
+    <dimen name="bottom_btn_distance">13dp</dimen>
+
+    <dimen name="margin_grant">72dp</dimen>
+
+    <dimen name="distance_layout_margin">7dp</dimen>
+
+    <!--支付宝账户 每个条目-->
+    <dimen name="alipay_account_bg_height">131dp</dimen>
+    <dimen name="alipay_account_bg_margin_left">82dp</dimen>
+
+    <!--地图mark 上的文字背景-->
+    <dimen name="address_cloud_width">106dp</dimen>
+    <dimen name="address_cloud_height">56dp</dimen>
+
+    <!--起始终止地址的大小-->
+    <dimen name="icon_circle">13dp</dimen>
+
+    <dimen name="padding_bottom_great">87dp</dimen>
+
+    <!--取件时拍摄物品图片-->
+    <dimen name="image_photo_size">80dp</dimen>
+
+    <!--主界面logo text 大小-->
+    <dimen name="logo_text_title_width">98dp</dimen>
+    <dimen name="logo_text_title_height">21dp</dimen>
+
+    <!--生成二维码大小-->
+    <dimen name="image_qrcode_size">156dp</dimen>
+
+    <!--登录界面 scrollview 的高度-->
+    <dimen name="scroll_hegiht">114dp</dimen>
+
+    <!--实名认证状态图标的大小-->
+    <dimen name="icon_real_status_width">69dp</dimen>
+    <dimen name="icon_real_status_height">21dp</dimen>
+
+    <!--登录界面验证框的大小-->
+    <dimen name="icon_verification_block_width">45dp</dimen>
+    <dimen name="icon_verification_block_height">55dp</dimen>
+
+    <!--物品信息备注textview的大小-->
+    <dimen name="text_width_goodstype">69dp</dimen>
+    <!--快盆类型的大小-->
+    <dimen name="icon_size_box_type">88dp</dimen>
+    <dimen name="padding_title_top_bottom">15dp</dimen>
+
+    <!--常用地址图片按钮大小-->
+    <dimen name="image_common_address_width">51dp</dimen>
+    <dimen name="image_common_address_height">16dp</dimen>
+
+    <!--质检员 快盆检验界面 间距-->
+    <dimen name="inspector_checkbox_margin">20dp</dimen>
+
+    <!--对话框的固定宽度-->
+    <dimen name="dialog_width">264dp</dimen>
+
+    <dimen name="dip_1">1dp</dimen>
+    <dimen name="dip_2">2dp</dimen>
+    <dimen name="dip_3">3dp</dimen>
+    <dimen name="dip_4">4dp</dimen>
+    <dimen name="dip_5">5dp</dimen>
+    <dimen name="dip_6">6dp</dimen>
+    <dimen name="dip_7">7dp</dimen>
+    <dimen name="dip_8">8dp</dimen>
+    <dimen name="dip_9">9dp</dimen>
+    <dimen name="dip_10">10dp</dimen>
+    <dimen name="dip_11">11dp</dimen>
+    <dimen name="dip_12">12dp</dimen>
+    <dimen name="dip_13">13dp</dimen>
+    <dimen name="dip_14">14dp</dimen>
+    <dimen name="dip_15">15dp</dimen>
+    <dimen name="dip_16">16dp</dimen>
+    <dimen name="dip_17">17dp</dimen>
+    <dimen name="dip_18">18dp</dimen>
+    <dimen name="dip_19">19dp</dimen>
+    <dimen name="dip_20">20dp</dimen>
+    <dimen name="dip_21">21dp</dimen>
+    <dimen name="dip_22">22dp</dimen>
+    <dimen name="dip_23">23dp</dimen>
+    <dimen name="dip_24">24dp</dimen>
+    <dimen name="dip_25">25dp</dimen>
+    <dimen name="dip_26">26dp</dimen>
+    <dimen name="dip_27">27dp</dimen>
+    <dimen name="dip_28">28dp</dimen>
+    <dimen name="dip_29">29dp</dimen>
+    <dimen name="dip_30">30dp</dimen>
+    <dimen name="dip_31">31dp</dimen>
+    <dimen name="dip_32">32dp</dimen>
+    <dimen name="dip_33">33dp</dimen>
+    <dimen name="dip_34">34dp</dimen>
+    <dimen name="dip_35">35dp</dimen>
+    <dimen name="dip_36">36dp</dimen>
+    <dimen name="dip_37">37dp</dimen>
+    <dimen name="dip_38">38dp</dimen>
+    <dimen name="dip_39">39dp</dimen>
+    <dimen name="dip_40">40dp</dimen>
+    <dimen name="dip_41">41dp</dimen>
+    <dimen name="dip_42">42dp</dimen>
+    <dimen name="dip_43">43dp</dimen>
+    <dimen name="dip_44">44dp</dimen>
+    <dimen name="dip_45">45dp</dimen>
+    <dimen name="dip_46">46dp</dimen>
+    <dimen name="dip_47">47dp</dimen>
+    <dimen name="dip_48">48dp</dimen>
+    <dimen name="dip_49">49dp</dimen>
+    <dimen name="dip_50">50dp</dimen>
+    <dimen name="dip_51">51dp</dimen>
+    <dimen name="dip_52">52dp</dimen>
+    <dimen name="dip_53">53dp</dimen>
+    <dimen name="dip_54">54dp</dimen>
+    <dimen name="dip_55">55dp</dimen>
+    <dimen name="dip_56">56dp</dimen>
+    <dimen name="dip_57">57dp</dimen>
+    <dimen name="dip_58">58dp</dimen>
+    <dimen name="dip_59">59dp</dimen>
+    <dimen name="dip_60">60dp</dimen>
+    <dimen name="dip_61">61dp</dimen>
+    <dimen name="dip_62">62dp</dimen>
+    <dimen name="dip_63">63dp</dimen>
+    <dimen name="dip_64">64dp</dimen>
+    <dimen name="dip_65">65dp</dimen>
+    <dimen name="dip_66">66dp</dimen>
+    <dimen name="dip_67">67dp</dimen>
+    <dimen name="dip_68">68dp</dimen>
+    <dimen name="dip_69">69dp</dimen>
+    <dimen name="dip_70">70dp</dimen>
+
+
+    <!--标题的阴影-->
+    <dimen name="shadow_page_header_height">@dimen/page_header_height</dimen>
+
+    <dimen name="shadow_padding_header_height">@dimen/page_header_height</dimen>
+    <dimen name="shadow_padding_header_height_small">42dp</dimen>
+    <dimen name="shadow_header_radius">3dp</dimen>
+    <dimen name="shadow_header_radius_small">3dp</dimen>
+    <dimen name="shadow_header_radius_minus">-15dp</dimen>
+    <dimen name="shadow_header_x">0dp</dimen>
+    <dimen name="shadow_header_y">0dp</dimen>
+    <!--抢单界面的间隔 shadow_padding_header_height + 7dp -->
+    <dimen name="shadow_padding_header_height_x">55dp</dimen>
+
+    <!--打包界面 shadow_padding_header_height + 12dp -->
+    <dimen name="shadow_padding_header_height_package">60dp</dimen>
+    <!--零传手 shadow_padding_header_height + 12dp -->
+    <dimen name="shadow_padding_header_height_zero">60dp</dimen>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

@@ -1,6 +1,10 @@
 package test.cn.sjz.testproject.Music;
 
+import android.media.MediaPlayer;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
+
+import java.io.IOException;
 
 import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.ARouterPath;
@@ -11,6 +15,7 @@ import test.cn.sjz.testproject.base.baseview.BaseActivity;
  */
 @Route(path = ARouterPath.ACTIVITY_PIANO)
 public class ActivityPiano extends BaseActivity {
+    MediaPlayer mediaPlayer;
 
     @Override
     public int getLayoutID() {
@@ -19,11 +24,18 @@ public class ActivityPiano extends BaseActivity {
 
     @Override
     public void initView() {
-
     }
 
     @Override
     public void initDate() {
+        mediaPlayer = MediaPlayer.create(this,R.raw.testdata2);
+        try {
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

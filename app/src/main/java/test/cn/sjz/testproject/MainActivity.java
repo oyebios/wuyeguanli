@@ -50,6 +50,8 @@ import test.cn.sjz.testproject.ui.ui.MenuPopwindow;
 import test.cn.sjz.testproject.ui.adapter.ZeroCapabilityAdapter;
 import test.cn.sjz.testproject.ui.ui.RadioGroupLayout;
 
+import static test.cn.sjz.testproject.base.GlobalConfig.REQUEST_CHOOSEFILE;
+
 @Route(path = ARouterPath.ACTIVITY_MAIN)
 public class MainActivity extends AppCompatActivity {
     boolean isfirst=true;
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     private MenuPopwindow utils;
     RadioGroupLayout radioGroupLayout;
 
-    public  static final  int REQUEST_CHOOSEFILE = 222;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

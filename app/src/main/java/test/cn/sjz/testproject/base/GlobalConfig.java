@@ -7,4 +7,10 @@ package test.cn.sjz.testproject.base;
 public class GlobalConfig {
     public static boolean ISDEBUG = true;
 
+
+
+
+
+//    ---------------------StartActivity  RequestCode--------------
+    public  static final  int REQUEST_CHOOSEFILE = 201;
 }
