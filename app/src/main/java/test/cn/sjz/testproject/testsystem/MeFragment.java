@@ -3,10 +3,10 @@ package test.cn.sjz.testproject.testsystem;
 import test.cn.sjz.testproject.base.baseview.BaseFragment;
 
 /**
- * Created by lwd on 2019/4/24.
+ * Created by lwd on 2019/4/25.
  */
 
-public class PatrolFragment extends BaseFragment{
+public class MeFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
         return 0;
