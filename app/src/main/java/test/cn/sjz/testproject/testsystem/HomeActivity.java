@@ -37,7 +37,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView mTvPage3;
 
 
-//    private HomeFragment homeFragment;
+    private PatrolFragment patrolFragment;
+    private RecordFragment recordFragment;
+    private MeFragment meFragment;
 
     private long exitTime;
 
@@ -86,67 +88,65 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
 
 //
-//    public void select(int id) {
-//
-//        FragmentManager fm = getSupportFragmentManager();
-//        FragmentTransaction transaction = fm.beginTransaction();
-//        hideFragment(transaction);
-//
-//        // 点击高亮
-//        switch (id) {
-//            case 0:
-//                if (homeFragment == null) {
-//                    homeFragment = new HomeFragment();
-//                    transaction.add(R.id.id_content, homeFragment);
-//                } else {
-//                    transaction.show(homeFragment);
-//                    //homeFragment.fetchData();
-//                }
-//                iv_home.setImageResource(R.drawable.home_press);
-//                tv_home.setTextColor(getResources().getColor(R.color.main_color_green));
-//
-//                break;
-//            case 1:
-//                if (exchangeFragment == null) {
-//                    exchangeFragment = new ExchangeFragment();
-//                    transaction.add(R.id.id_content, exchangeFragment);
-//                } else {
-//                    transaction.show(exchangeFragment);
-//                }
-//                iv_exchange.setImageResource(R.drawable.exchange_press);
-//                tv_exchange.setTextColor(getResources().getColor(R.color.main_color_green));
-//                break;
-//            case 2:
-//                if (meFragment == null) {
-//                    meFragment = new MeFragment();
-//                    transaction.add(R.id.id_content, meFragment);
-//
-//                } else {
-//                    transaction.show(meFragment);
-//                 //   meFragment.fetchData();
-//                }
-//                iv_me.setImageResource(R.drawable.me_press);
-//                tv_me.setTextColor(getResources().getColor(R.color.main_color_green));
-//                break;
-//            default:
-//                break;
-//        }
-//
-//        transaction.commit();
-//    }
-//
-//    private void hideFragment(FragmentTransaction transaction) {
-//        if (homeFragment != null) {
-//            transaction.hide(homeFragment);
-//        }
-//        if (exchangeFragment != null) {
-//            transaction.hide(exchangeFragment);
-//        }
-//        if (meFragment != null) {
-//            transaction.hide(meFragment);
-//
-//        }
-//    }
+    public void select(int id) {
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        hideFragment(transaction);
+
+        // 点击高亮
+        switch (id) {
+            case 0:
+                if (patrolFragment == null) {
+                    patrolFragment = new PatrolFragment();
+                    transaction.add(R.id.rl_content, patrolFragment);
+                } else {
+                    transaction.show(patrolFragment);
+                }
+                mFtvPage1.setTextColor(getResources().getColor(R.color.light_text_color));
+                mTvPage1.setTextColor(getResources().getColor(R.color.light_text_color));
+
+                break;
+            case 1:
+                if (recordFragment == null) {
+                    recordFragment = new RecordFragment();
+                    transaction.add(R.id.rl_content, recordFragment);
+                } else {
+                    transaction.show(recordFragment);
+                }
+                mFtvPage2.setTextColor(getResources().getColor(R.color.light_text_color));
+                mTvPage2.setTextColor(getResources().getColor(R.color.light_text_color));
+                break;
+            case 2:
+                if (meFragment == null) {
+                    meFragment = new MeFragment();
+                    transaction.add(R.id.rl_content, meFragment);
+
+                } else {
+                    transaction.show(meFragment);
+                }
+                mFtvPage3.setTextColor(getResources().getColor(R.color.light_text_color));
+                mTvPage3.setTextColor(getResources().getColor(R.color.light_text_color));
+                break;
+            default:
+                break;
+        }
+
+        transaction.commit();
+    }
+
+    private void hideFragment(FragmentTransaction transaction) {
+        if (patrolFragment != null) {
+            transaction.hide(patrolFragment);
+        }
+        if (recordFragment != null) {
+            transaction.hide(recordFragment);
+        }
+        if (meFragment != null) {
+            transaction.hide(meFragment);
+
+        }
+    }
 
     public void resetTab() {
         mFtvPage1.setTextColor(getResources().getColor(R.color.btn_pressed));
@@ -163,13 +163,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         resetTab();
         switch (v.getId()) {
             case R.id.ll_page_1:
-//                select(0);
+                select(0);
                 break;
             case R.id.ll_page_2:
-//                select(1);
+                select(1);
                 break;
             case R.id.ll_page_3:
-//                select(2);
+                select(2);
                 break;
         }
     }
