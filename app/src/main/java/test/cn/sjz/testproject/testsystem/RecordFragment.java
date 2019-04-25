@@ -13,8 +13,12 @@ import test.cn.sjz.testproject.base.baseview.BaseFragment;
  */
 
 public class RecordFragment extends BaseFragment implements PullToRefreshRecyclerView.OnRefreshListener2{
-    PullToRefreshRecyclerView pullView;
-    RecyclerView mRcvRecord;
+    private PullToRefreshRecyclerView pullView;
+    private RecyclerView mRcvRecord;
+    private RecyclerView.Adapter mAdapter;
+
+    public static final int QUERY_TYPE_REFRESH = 0;
+    public static final int QUERY_TYPE_LOAD_MORE = 1;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_record;
@@ -38,14 +42,22 @@ public class RecordFragment extends BaseFragment implements PullToRefreshRecycle
     protected void initListener() {
 
     }
+    private int startPos = 0;
+    private int count = 10;
+    private void query_record(int type){
+        if (type == QUERY_TYPE_REFRESH){
+            startPos = 0;
+        }
+    }
+
 
     @Override
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
-
+        query_record(QUERY_TYPE_REFRESH);
     }
 
     @Override
     public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-
+        query_record(QUERY_TYPE_LOAD_MORE);
     }
 }

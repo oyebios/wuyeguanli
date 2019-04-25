@@ -33,8 +33,8 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected  abstract int getLayoutId();
-    protected abstract void initData();
     protected abstract void initView();
+    protected abstract void initData();
     protected abstract void initListener();
 
 
