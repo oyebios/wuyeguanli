@@ -70,7 +70,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void initDate() {
-
+        select(0);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package test.cn.sjz.testproject.testsystem;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
@@ -30,7 +32,7 @@ public class RecordFragment extends BaseFragment implements PullToRefreshRecycle
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View v, Bundle savedInstanceState) {
         pullView = (PullToRefreshRecyclerView)mRootView.findViewById(R.id.rcv_record);
         pullView.setMode(PullToRefreshBase.Mode.BOTH);
         pullView.setOnRefreshListener(this);

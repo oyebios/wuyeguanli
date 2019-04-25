@@ -38,7 +38,7 @@ public class FragmentMain extends BaseFragment{
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View v, Bundle savedInstanceState) {
         mbtnChoose = (Button)mRootView.findViewById(R.id.btn_choose_file);
     }
     @Override

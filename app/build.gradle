@@ -5,7 +5,7 @@ android {
         signature {
             keyAlias 'signature'
             keyPassword '123456'
-            storeFile file('F:/AndroidProject_lwd/TestProject/signature.jks')
+            storeFile file('D:/Android/testproject/TestProject/signature.jks')
             storePassword '123456'
         }
     }
@@ -26,6 +26,12 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","x86_64"
+        }
+
     }
     buildTypes {
         release {
@@ -62,4 +68,8 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.jsoup:jsoup:1.11.3'
+
+
+    compile 'com.amap.api:3dmap:latest.integration'
+    compile 'com.amap.api:location:latest.integration'
 }

@@ -1,5 +1,6 @@
 package test.cn.sjz.testproject.testsystem;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +32,7 @@ public class PatrolFragment extends BaseFragment{
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View v, Bundle savedInstanceState) {
         mEtContent = (EditText)mRootView.findViewById(R.id.ev_content);
         mEtAdvice = (EditText)mRootView.findViewById(R.id.ev_advice);
         mSpItem = (Spinner)mRootView.findViewById(R.id.sp_item);

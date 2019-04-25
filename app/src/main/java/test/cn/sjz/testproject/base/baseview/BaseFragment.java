@@ -20,7 +20,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(getLayoutId(),container,false);
-        initView();
+        initView(mRootView,savedInstanceState);
         initData();
         initListener();
         return mRootView;
@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected  abstract int getLayoutId();
-    protected abstract void initView();
+    protected abstract void initView(View v, Bundle savedInstanceState);
     protected abstract void initData();
     protected abstract void initListener();
 
