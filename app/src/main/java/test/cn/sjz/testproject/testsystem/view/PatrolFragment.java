@@ -1,14 +1,17 @@
 package test.cn.sjz.testproject.testsystem.view;
 
 import android.os.Bundle;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.baseview.BaseFragment;
+import test.cn.sjz.testproject.model.Parcelable.TestData;
 
 /**
  * Created by lwd on 2019/4/24.
@@ -17,7 +20,7 @@ import test.cn.sjz.testproject.base.baseview.BaseFragment;
 public class PatrolFragment extends BaseFragment{
     private EditText mEtContent,mEtAdvice;
     private Spinner mSpItem;
-    private Button mBtnCommit;
+    private TextView mBtnCommit;
 
     String item,content,advice;
 
@@ -36,7 +39,7 @@ public class PatrolFragment extends BaseFragment{
         mEtContent = (EditText)mRootView.findViewById(R.id.ev_content);
         mEtAdvice = (EditText)mRootView.findViewById(R.id.ev_advice);
         mSpItem = (Spinner)mRootView.findViewById(R.id.sp_item);
-        mBtnCommit = (Button)mRootView.findViewById(R.id.btn_commit);
+        mBtnCommit = (TextView)mRootView.findViewById(R.id.btn_commit);
     }
 
     @Override

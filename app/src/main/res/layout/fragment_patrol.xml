@@ -3,64 +3,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_lab_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="巡查项目："
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp" />
-    <Spinner
-        android:id="@+id/sp_item"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/tv_lab_item">
-    </Spinner>
-    <TextView
-        android:id="@+id/tv_lab_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="巡查说明："
-        android:layout_below="@+id/sp_item"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/ev_content"
+    <LinearLayout
+        android:id="@+id/ll_item"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/tv_lab_content"
-        android:background="@drawable/shape_radius_8_white"
-        android:inputType="textMultiLine"
-        android:gravity="left|top"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:background="@color/white"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/tv_lab_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="巡查项目："
+        />
+        <Spinner
+            android:id="@+id/sp_item"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_lab_item">
+        </Spinner>
 
-    <TextView
-        android:id="@+id/tv_lab_advice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="巡查说明："
-        android:layout_below="@+id/ev_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/ev_advice"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/tv_lab_advice"
-        android:background="@drawable/shape_radius_8_white"
-        android:inputType="textMultiLine"
-        android:gravity="left|top"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ll_item"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_lab_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="巡查说明：" />
+        <EditText
+            android:id="@+id/ev_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:background="@drawable/shape_radius_8_bg_gray"
+            android:inputType="textMultiLine"
+            android:gravity="left|top"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_advice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ll_content"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/tv_lab_advice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="巡查说明：" />
+        <EditText
+            android:id="@+id/ev_advice"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:background="@drawable/shape_radius_8_bg_gray"
+            android:inputType="textMultiLine"
+            android:gravity="left|top"/>
+    </LinearLayout>
+
+
+
 
     <TextView
         android:id="@+id/btn_commit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:padding="10dp"
         android:textSize="15sp"
         android:text="提交"
@@ -68,8 +95,8 @@
         android:gravity="center"
         android:background="@drawable/selector_btn_normal"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="50dp"/>
 
 </RelativeLayout>
