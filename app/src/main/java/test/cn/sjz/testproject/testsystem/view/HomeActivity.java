@@ -1,15 +1,9 @@
-package test.cn.sjz.testproject.testsystem;
+package test.cn.sjz.testproject.testsystem.view;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;

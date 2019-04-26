@@ -1,4 +1,4 @@
-package test.cn.sjz.testproject.testsystem;
+package test.cn.sjz.testproject.testsystem.view;
 
 import android.os.Bundle;
 import android.view.View;

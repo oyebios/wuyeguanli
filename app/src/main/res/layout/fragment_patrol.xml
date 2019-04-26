@@ -27,7 +27,9 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_toRightOf="@+id/tv_lab_content"
-        android:layout_alignTop="@+id/tv_lab_content"/>
+        android:layout_alignTop="@+id/tv_lab_content"
+        android:inputType="textMultiLine"
+        android:gravity="left|top"/>
 
     <TextView
         android:id="@+id/tv_lab_advice"
@@ -41,7 +43,9 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_toRightOf="@+id/tv_lab_advice"
-        android:layout_alignTop="@+id/tv_lab_advice"/>
+        android:layout_alignTop="@+id/tv_lab_advice"
+        android:inputType="textMultiLine"
+        android:gravity="left|top"/>
 
     <Button
         android:id="@+id/btn_commit"

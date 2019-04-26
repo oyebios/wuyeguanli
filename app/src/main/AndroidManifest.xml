@@ -41,8 +41,8 @@
         <activity android:name=".ActivityMain">
         </activity>
 
-        <activity android:name=".testsystem.HomeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".testsystem.InitialActivity" android:screenOrientation="portrait">
+        <activity android:name=".testsystem.view.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".testsystem.view.InitialActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

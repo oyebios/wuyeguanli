@@ -1,7 +1,10 @@
-package test.cn.sjz.testproject.testsystem;
+package test.cn.sjz.testproject.testsystem.view;
 
 import android.content.Intent;
-import android.service.quicksettings.Tile;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import test.cn.sjz.testproject.R;
@@ -13,7 +16,9 @@ import test.cn.sjz.testproject.base.baseview.BaseActivity;
 
 public class InitialActivity extends BaseActivity {
     private TextView mTvCountDown;
+    private LinearLayout mLlIcon;
     private int countdown = 3;
+    private Animation anim;
     @Override
     public int getLayoutID() {
         return R.layout.activity_initial;
@@ -21,6 +26,9 @@ public class InitialActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        anim = AnimationUtils.loadAnimation(this,R.anim.scale_alpha_anim);
+        mLlIcon = (LinearLayout) findViewById(R.id.ll_icon);
+        mLlIcon.startAnimation(anim);
         mTvCountDown = (TextView)findViewById(R.id.tv_count_down);
         mTvCountDown.post(setTime);
     }
@@ -32,6 +40,15 @@ public class InitialActivity extends BaseActivity {
 
     @Override
     public void iniListener() {
+        mTvCountDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTvCountDown.removeCallbacks(setTime);
+                Intent intent = new Intent(InitialActivity.this,HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

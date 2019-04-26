@@ -12,4 +12,6 @@
     <color name="btn_unpressed">#ffffff</color>
     <color name="btn_unable_press">#0fffffff</color>
     <color name="light_text_color">#5F81B5</color>
+    <color name="jump_background">#10000000</color>
+    <color name="gray_blue">#4A7AA2</color>
 </resources>

@@ -5,7 +5,8 @@ android {
         signature {
             keyAlias 'signature'
             keyPassword '123456'
-            storeFile file('D:/Android/testproject/TestProject/signature.jks')
+//            storeFile file('D:/Android/testproject/TestProject/signature.jks')
+            storeFile file('F:/AndroidProject_lwd/TestProject/signature.jks')
             storePassword '123456'
         }
     }
