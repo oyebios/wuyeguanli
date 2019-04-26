@@ -8,11 +8,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="巡查项目："
-        android:layout_alignTop="@+id/sp_item"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp" />
     <Spinner
         android:id="@+id/sp_item"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_marginTop="30dp"
         android:layout_toRightOf="@+id/tv_lab_item">
     </Spinner>
     <TextView
@@ -21,13 +23,17 @@
         android:layout_height="wrap_content"
         android:text="巡查说明："
         android:layout_below="@+id/sp_item"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
     <EditText
         android:id="@+id/ev_content"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_toRightOf="@+id/tv_lab_content"
-        android:layout_alignTop="@+id/tv_lab_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_lab_content"
+        android:background="@drawable/shape_radius_8_white"
         android:inputType="textMultiLine"
         android:gravity="left|top"/>
 
@@ -37,25 +43,33 @@
         android:layout_height="wrap_content"
         android:text="巡查说明："
         android:layout_below="@+id/ev_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
     <EditText
         android:id="@+id/ev_advice"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_toRightOf="@+id/tv_lab_advice"
-        android:layout_alignTop="@+id/tv_lab_advice"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/tv_lab_advice"
+        android:background="@drawable/shape_radius_8_white"
         android:inputType="textMultiLine"
         android:gravity="left|top"/>
 
-    <Button
+    <TextView
         android:id="@+id/btn_commit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="提交"
+        android:clickable="true"
+        android:gravity="center"
         android:background="@drawable/selector_btn_normal"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="50dp"/>
 
 </RelativeLayout>
