@@ -11,7 +11,10 @@
         android:orientation="horizontal"
         android:elevation="1dp"
         android:background="@color/white"
-        android:padding="15dp">
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp">
         <TextView
             android:id="@+id/tv_lab_item"
             android:layout_width="wrap_content"
@@ -37,7 +40,10 @@
         android:background="@color/white"
         android:elevation="1dp"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp">
 
         <TextView
             android:id="@+id/tv_lab_content"
@@ -64,7 +70,10 @@
         android:background="@color/white"
         android:elevation="1dp"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp">
         <TextView
             android:id="@+id/tv_lab_advice"
             android:layout_width="wrap_content"
@@ -94,9 +103,9 @@
         android:clickable="true"
         android:gravity="center"
         android:background="@drawable/selector_btn_normal"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/ll_advice"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginTop="30dp"/>
 
 </RelativeLayout>
