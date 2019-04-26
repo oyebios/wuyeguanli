@@ -11,7 +11,7 @@ import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
 
 /**
- * Created by lwd on 2019/4/25.
+ * 启动页
  */
 
 public class InitialActivity extends BaseActivity {
@@ -44,7 +44,7 @@ public class InitialActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 mTvCountDown.removeCallbacks(setTime);
-                Intent intent = new Intent(InitialActivity.this,HomeActivity.class);
+                Intent intent = new Intent(InitialActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -59,7 +59,7 @@ public class InitialActivity extends BaseActivity {
                 countdown -= 1;
                 mTvCountDown.postDelayed(this,1000);
             }else {
-                Intent intent = new Intent(InitialActivity.this,HomeActivity.class);
+                Intent intent = new Intent(InitialActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

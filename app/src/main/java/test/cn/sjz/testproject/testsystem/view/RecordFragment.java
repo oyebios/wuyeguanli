@@ -11,7 +11,7 @@ import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.baseview.BaseFragment;
 
 /**
- * Created by lwd on 2019/4/25.
+ * 记录
  */
 
 public class RecordFragment extends BaseFragment implements PullToRefreshRecyclerView.OnRefreshListener2{

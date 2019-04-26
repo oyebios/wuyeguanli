@@ -1,28 +1,41 @@
 package test.cn.sjz.testproject.testsystem.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.baseview.BaseFragment;
 import test.cn.sjz.testproject.model.Parcelable.TestData;
+import test.cn.sjz.testproject.testsystem.http.Api;
+import test.cn.sjz.testproject.testsystem.http.HttpManager;
+import test.cn.sjz.testproject.testsystem.http.bean.TypeBean;
 
 /**
- * Created by lwd on 2019/4/24.
+ * 巡查
  */
 
 public class PatrolFragment extends BaseFragment{
     private EditText mEtContent,mEtAdvice;
     private Spinner mSpItem;
     private TextView mBtnCommit;
-
+    private List<TypeBean> mListData = new ArrayList<>();
+    private SpinnerAdapter adapter;
     String item,content,advice;
+
+    HttpManager httpManager;
 
     @Override
     protected int getLayoutId() {
@@ -31,7 +44,8 @@ public class PatrolFragment extends BaseFragment{
 
     @Override
     protected void initData() {
-
+        httpManager = new HttpManager(getActivity() ,handler);
+        httpManager.gettype();
     }
 
     @Override
@@ -63,4 +77,23 @@ public class PatrolFragment extends BaseFragment{
             }
         });
     }
+
+    public Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case Api.FAILED:
+                case Api.GET_TYPE_F:
+                    String failed=(String )msg.obj;
+                    Toast.makeText(mContext,failed , Toast.LENGTH_SHORT).show();
+                    break;
+                case Api.GET_TYPE_S:
+                    mListData.addAll((List<TypeBean>)msg.obj);
+//                    adapter.
+                    mSpItem.setAdapter(adapter);
+                    break;
+            }
+        }
+    };
 }

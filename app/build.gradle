@@ -5,8 +5,8 @@ android {
         signature {
             keyAlias 'signature'
             keyPassword '123456'
-//            storeFile file('D:/Android/testproject/TestProject/signature.jks')
-            storeFile file('F:/AndroidProject_lwd/TestProject/signature.jks')
+            storeFile file('D:/Android/testproject/TestProject/signature.jks')
+//            storeFile file('F:/AndroidProject_lwd/TestProject/signature.jks')
             storePassword '123456'
         }
     }
@@ -70,7 +70,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.jsoup:jsoup:1.11.3'
 
-
+    compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.amap.api:location:latest.integration'
 }
