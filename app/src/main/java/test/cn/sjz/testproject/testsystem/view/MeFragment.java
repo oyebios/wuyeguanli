@@ -14,8 +14,8 @@ import test.cn.sjz.testproject.base.baseview.BaseFragment;
  */
 
 public class MeFragment extends BaseFragment {
-    private MapView mv_map;
-    private AMap aMap;
+//    private MapView mv_map;
+//    private AMap aMap;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_me;
@@ -23,15 +23,10 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        if (aMap == null) {
-            aMap = mv_map.getMap();
-        }
     }
 
     @Override
     protected void initView(View v, Bundle savedInstanceState) {
-        mv_map=(MapView)v.findViewById(R.id.mv_map) ;
-        mv_map.onCreate(savedInstanceState);
     }
 
     @Override

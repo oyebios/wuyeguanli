@@ -13,8 +13,12 @@
         android:id="@+id/ll_tab"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="7dp">
         <LinearLayout
             android:id="@+id/ll_page_1"
             android:layout_width="match_parent"
@@ -25,12 +29,15 @@
             <test.cn.sjz.testproject.customview.FontTextView
                 android:id="@+id/ftv_page_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="&#xe60a;"/>
             <TextView
                 android:id="@+id/tv_page_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="diyige"/>
+                android:textSize="10sp"
+                android:text="巡查"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_page_2"
@@ -42,12 +49,15 @@
             <test.cn.sjz.testproject.customview.FontTextView
                 android:id="@+id/ftv_page_2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="&#xe621;"/>
             <TextView
                 android:id="@+id/tv_page_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="diyige"/>
+                android:textSize="10sp"
+                android:text="记录"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_page_3"
@@ -59,12 +69,15 @@
             <test.cn.sjz.testproject.customview.FontTextView
                 android:id="@+id/ftv_page_3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="&#xe682;"/>
             <TextView
                 android:id="@+id/tv_page_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="diyige"/>
+                android:textSize="10sp"
+                android:text="我的"/>
         </LinearLayout>
     </LinearLayout>
 

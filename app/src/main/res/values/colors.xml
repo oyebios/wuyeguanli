@@ -7,6 +7,7 @@
     <color name="app_main_color">@color/china_red</color>
     <color name="china_red">#F14845</color>
     <color name="text_deliver_name">#1D1D26</color>
+    <color name="gray">#1D1D26</color>
     <color name="main_bg_color">#efefef</color>
     <color name="btn_pressed">#8fffffff</color>
     <color name="btn_unpressed">#ffffff</color>
@@ -14,4 +15,7 @@
     <color name="light_text_color">#5F81B5</color>
     <color name="jump_background">#10000000</color>
     <color name="gray_blue">#4A7AA2</color>
+    <color name="black">#000000</color>
+    <color name="title_gray">#eeeeee</color>
+    <color name="light_gray">#8f626262</color>
 </resources>

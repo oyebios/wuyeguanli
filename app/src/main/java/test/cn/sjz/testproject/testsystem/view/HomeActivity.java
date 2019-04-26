@@ -83,7 +83,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
 //
     public void select(int id) {
-
+        resetTab();
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         hideFragment(transaction);
@@ -143,18 +143,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public void resetTab() {
-        mFtvPage1.setTextColor(getResources().getColor(R.color.btn_pressed));
-        mFtvPage2.setTextColor(getResources().getColor(R.color.btn_pressed));
-        mFtvPage3.setTextColor(getResources().getColor(R.color.btn_pressed));
-        mTvPage1.setTextColor(getResources().getColor(R.color.btn_pressed));
-        mTvPage2.setTextColor(getResources().getColor(R.color.btn_pressed));
-        mTvPage3.setTextColor(getResources().getColor(R.color.btn_pressed));
+        mFtvPage1.setTextColor(getResources().getColor(R.color.light_gray));
+        mFtvPage2.setTextColor(getResources().getColor(R.color.light_gray));
+        mFtvPage3.setTextColor(getResources().getColor(R.color.light_gray));
+        mTvPage1.setTextColor(getResources().getColor(R.color.light_gray));
+        mTvPage2.setTextColor(getResources().getColor(R.color.light_gray));
+        mTvPage3.setTextColor(getResources().getColor(R.color.light_gray));
 
     }
 
     @Override
     public void onClick(View v) {
-        resetTab();
         switch (v.getId()) {
             case R.id.ll_page_1:
                 select(0);
