@@ -79,7 +79,7 @@
             android:id="@+id/tv_lab_advice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="巡查说明：" />
+            android:text="处理建议：" />
         <EditText
             android:id="@+id/ev_advice"
             android:layout_width="match_parent"
