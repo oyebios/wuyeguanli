@@ -1,15 +1,11 @@
-package test.cn.sjz.testproject.testsystem.view;
+package test.cn.sjz.testproject.wuliusystem.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,10 +26,10 @@ import java.util.List;
 import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.Utils.PreferUtil;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
-import test.cn.sjz.testproject.testsystem.http.Api;
-import test.cn.sjz.testproject.testsystem.http.HttpManager;
-import test.cn.sjz.testproject.testsystem.http.bean.RecordBean;
-import test.cn.sjz.testproject.testsystem.http.requestbody.GetListBody;
+import test.cn.sjz.testproject.wuliusystem.http.Api;
+import test.cn.sjz.testproject.wuliusystem.http.HttpManager;
+import test.cn.sjz.testproject.wuliusystem.http.bean.RecordBean;
+import test.cn.sjz.testproject.wuliusystem.http.requestbody.GetListBody;
 
 public class RecordInDayActivity extends BaseActivity {
     private TextView mTvBack,mTvTitle;
@@ -117,7 +113,7 @@ public class RecordInDayActivity extends BaseActivity {
                     .position(latLng)
                     .title(String.valueOf(mListData.get(i).noteTypeId))
                     .snippet(String.valueOf(mListData.get(i).id))
-                    .icon(BitmapDescriptorFactory.fromView(getMyBitmap())));
+                    .icon(BitmapDescriptorFactory.fromView(getMyBitmap(mListData.get(i).noteTypeId+""))));
             markerList.add(marker);
         }
         Polyline polyline =aMap.addPolyline(new PolylineOptions().
@@ -149,8 +145,10 @@ public class RecordInDayActivity extends BaseActivity {
     }
 
 
-    protected View  getMyBitmap() {
+    protected View  getMyBitmap(String pm_val) {
         View view=getLayoutInflater().inflate(R.layout.layout_marker, null);
+        TextView tv_val=(TextView) view.findViewById(R.id.marker_tv_val);
+        tv_val.setText(pm_val);
         return view;
     }
 

@@ -79,7 +79,7 @@
             android:id="@+id/tv_lab_advice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="巡查说明：" />
+            android:text="处理建议：" />
         <TextView
             android:id="@+id/tv_advice"
             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
             android:id="@+id/tv_lab_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="状态："
+            android:text="审批意见："
             />
         <TextView
             android:id="@+id/tv_status"
