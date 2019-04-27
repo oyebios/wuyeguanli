@@ -37,7 +37,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rc_info"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/tv_status_last"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rc_info"
         android:paddingBottom="10dp"
+        android:layout_marginTop="30dp"
         android:paddingTop="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -70,13 +71,16 @@
             android:gravity="right|center_vertical"
             android:textSize="15sp"
             android:layout_toRightOf="@+id/tv_bianhao"
-            android:background="@color/white"/>
+            android:layout_marginLeft="20dp"
+            android:padding="8dp"
+            android:background="@drawable/shape_rect_8"/>
         <TextView
             android:id="@+id/tv_status"
             android:text="状态:"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_below="@+id/tv_bianhao"
+            android:layout_marginTop="20dp"
             android:layout_height="30dp"
             android:textSize="15sp"/>
         <RadioGroup
@@ -85,6 +89,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
             android:textSize="15sp"
             android:layout_toRightOf="@+id/tv_bianhao"
             android:layout_below="@+id/tv_bianhao"
@@ -94,6 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="运输中"
+                android:checked="true"
                 android:layout_weight="1"/>
             <RadioButton
                 android:id="@+id/rbtn_2"

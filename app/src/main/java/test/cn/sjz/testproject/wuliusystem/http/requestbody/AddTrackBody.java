@@ -6,6 +6,12 @@ import java.io.Serializable;
 public class AddTrackBody implements Serializable {
 
 
+    public AddTrackBody(String location, int logisticsId, int status) {
+        this.location = location;
+        this.logisticsId = logisticsId;
+        this.status = status;
+    }
+
     /**
      * location : string
      * logisticsId : 0

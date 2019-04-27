@@ -68,7 +68,7 @@
         android:background="@drawable/shape_bg_white"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:paddingTop="10dp">
         <TextView
             android:text="发件人信息"
@@ -170,7 +170,7 @@
         android:background="@drawable/shape_bg_white"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:paddingTop="10dp">
         <TextView
             android:text="收件人信息"
