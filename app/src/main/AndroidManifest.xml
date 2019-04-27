@@ -21,6 +21,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <application
         android:name=".base.MyApplication"
         android:allowBackup="true"
@@ -63,6 +65,7 @@
         </activity>
         <activity android:name=".wuliusystem.view.HomeActivity"  android:screenOrientation="portrait" />
         <activity android:name=".wuliusystem.view.LoginActivity" android:screenOrientation="portrait"  />
+        <activity android:name=".zbar.CaptureActivity" />
 
         <service android:name="com.amap.api.location.APSService"></service>
     </application>

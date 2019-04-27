@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -28,13 +30,14 @@ import test.cn.sjz.testproject.base.baseview.BaseActivity;
 import test.cn.sjz.testproject.wuliusystem.http.Api;
 import test.cn.sjz.testproject.wuliusystem.http.HttpManager;
 import test.cn.sjz.testproject.wuliusystem.http.requestbody.HandEntryBody;
+import test.cn.sjz.testproject.zbar.CaptureActivity;
 
 public class HomeActivity extends BaseActivity {
 
     private EditText mEtCode;
     private EditText mEtName1,mEtPhone1,mEtAddr1;
     private EditText mEtName2,mEtPhone2,mEtAddr2;
-    private TextView mBtnCommit;
+    private TextView mBtnCommit ,mBtnScan;
     private long exitTime;
 
     String sname, sphone,saddress ;
@@ -60,6 +63,7 @@ public class HomeActivity extends BaseActivity {
         mEtAddr2 = (EditText)findViewById(R.id.et_rec_address);
 
         mBtnCommit = (TextView)findViewById(R.id.btn_commit);
+        mBtnScan = (TextView)findViewById(R.id.tv_scan);
 
     }
 
@@ -70,6 +74,16 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void iniListener() {
+        mBtnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.CAMERA}, 1);
+                } else {
+                    goScan();
+                }
+            }
+        });
         mBtnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +116,32 @@ public class HomeActivity extends BaseActivity {
             }
         });
     }
+
+    /**
+     * 跳转到扫码界面扫码
+     */
+    private void goScan() {
+        Intent intent = new Intent(HomeActivity.this, CaptureActivity.class);
+        startActivityForResult(intent, 222);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 222){
+            // 扫描二维码回传
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    //获取扫描结果
+                    Bundle bundle = data.getExtras();
+                    String result = bundle.getString(CaptureActivity.EXTRA_STRING);
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+
 
     @SuppressLint("HandlerLeak")
     public Handler handler = new Handler(){
@@ -237,12 +277,23 @@ public class HomeActivity extends BaseActivity {
     @TargetApi(23)
     public void onRequestPermissionsResult(int requestCode,
                                            String[] permissions, int[] paramArrayOfInt) {
-        if (requestCode == PERMISSON_REQUESTCODE) {
-            if (!verifyPermissions(paramArrayOfInt)) {
-                showMissingPermissionDialog();
-                isNeedCheck = false;
+            switch (requestCode) {
+                case 1:
+                    if (paramArrayOfInt.length > 0 && paramArrayOfInt[0] == PackageManager.PERMISSION_GRANTED) {
+                        goScan();
+                    } else {
+                        Toast.makeText(this, "你拒绝了权限申请，可能无法打开相机扫码哟！", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case PERMISSON_REQUESTCODE:
+                    if (!verifyPermissions(paramArrayOfInt)) {
+                        showMissingPermissionDialog();
+                        isNeedCheck = false;
+                    }
+                    break;
+                default:
             }
-        }
+
     }
 
     /**
