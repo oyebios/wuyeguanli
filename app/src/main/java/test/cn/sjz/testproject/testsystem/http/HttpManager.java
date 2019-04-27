@@ -75,10 +75,10 @@ public class HttpManager {
     }
 
     public void getdetail(int id){
-        String url = Api.url_get_list + String.valueOf(id);
+        String url = Api.url_get_detail + String.valueOf(id);
         OkHttpUtils
                 .get()
-                .url(Api.url)
+                .url(url)
                 .build()
                 .execute(new GetDetailCallBack(activity, handler));
 
@@ -88,7 +88,7 @@ public class HttpManager {
         String url = Api.url_get_count + String.valueOf(uid);
         OkHttpUtils
                 .get()
-                .url(Api.url)
+                .url(url)
                 .build()
                 .execute(new GetCountCallBack(activity, handler));
     }

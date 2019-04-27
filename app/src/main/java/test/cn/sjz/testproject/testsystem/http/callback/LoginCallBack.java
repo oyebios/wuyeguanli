@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 
 import okhttp3.Call;
 import test.cn.sjz.testproject.testsystem.http.Api;
+import test.cn.sjz.testproject.testsystem.http.bean.UserBean;
 
 /**
  *
@@ -46,7 +48,8 @@ public class LoginCallBack extends StringCallback {
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("success") && jsonObject.getBoolean("success") ) {
                     msg.what = Api.LOGIN_SUCCESS;
-                    msg.obj =jsonObject.getString("message");
+                    UserBean userBean = new Gson().fromJson(jsonObject.getString("data"),UserBean.class);
+                    msg.obj =userBean;
 
                 } else {
                     if (jsonObject.has("message")) {

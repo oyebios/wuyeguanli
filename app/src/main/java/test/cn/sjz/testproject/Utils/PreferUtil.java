@@ -39,4 +39,12 @@ public class PreferUtil {
     public static Integer getInt(String name,int defaultVal){
         return preferences.getInt(name,defaultVal);
     }
+
+    public static boolean putLong(String name ,long str){
+        return preferences.edit().putLong(name,str).commit();
+    }
+
+    public static Long getLong(String name,long  defaultVal){
+        return preferences.getLong(name,defaultVal);
+    }
 }

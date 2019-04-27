@@ -9,10 +9,16 @@ import java.io.Serializable;
 
 public class GetListBody implements Serializable {
 
+    public GetListBody(String time, int uid) {
+        this.time = time;
+        this.uid = uid;
+    }
+
     /**
      * time : string
      * uid : 0
      */
+
 
     public String time;
     public int uid;

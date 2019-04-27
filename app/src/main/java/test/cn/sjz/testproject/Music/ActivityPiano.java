@@ -1,6 +1,7 @@
 package test.cn.sjz.testproject.Music;
 
 import android.media.MediaPlayer;
+import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
@@ -23,7 +24,7 @@ public class ActivityPiano extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
     }
 
     @Override

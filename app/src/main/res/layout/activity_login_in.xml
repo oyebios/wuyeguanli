@@ -27,6 +27,7 @@
         android:layout_toRightOf="@+id/tv_pwd_label"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:layout_below="@+id/et_username"/>
 
     <TextView

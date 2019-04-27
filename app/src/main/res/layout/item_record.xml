@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_btn_unpressed_noramal"
+    android:gravity="center_vertical"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2019-4-25"
+        android:textColor="@color/gray_blue"/>
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/tv_go"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/gray_blue"
+        android:text="10次"/>
+    <test.cn.sjz.testproject.customview.FontTextView
+        android:id="@+id/tv_go"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textColor="@color/gray_blue"
+        android:text="&#xe61f;"/>
+</RelativeLayout>

@@ -51,7 +51,7 @@ public class GetTypeCallBack extends StringCallback {
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("success") && jsonObject.getBoolean("success") ) {
 
-                    if (jsonObject.has("data")&&jsonObject.getJSONObject("data")!=null){
+                    if (jsonObject.has("data")&&!jsonObject.getString("data").equals("")){
                         msg.what = Api.GET_TYPE_S;
                         List<TypeBean> datalist = new ArrayList<>();
                         JSONArray data = jsonObject.getJSONArray("data");

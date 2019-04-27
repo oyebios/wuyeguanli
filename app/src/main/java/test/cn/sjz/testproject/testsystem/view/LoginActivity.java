@@ -1,6 +1,8 @@
 package test.cn.sjz.testproject.testsystem.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -10,9 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import test.cn.sjz.testproject.R;
+import test.cn.sjz.testproject.Utils.PreferUtil;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
 import test.cn.sjz.testproject.testsystem.http.HttpManager;
 import test.cn.sjz.testproject.testsystem.http.Api;
+import test.cn.sjz.testproject.testsystem.http.bean.UserBean;
 import test.cn.sjz.testproject.testsystem.http.requestbody.LoginBody;
 
 /**
@@ -23,13 +27,14 @@ public class LoginActivity extends BaseActivity {
     private EditText mEtUserName,mEtPwd;
     private TextView mBtnLogin;
     private String username,pwd;
+    HttpManager httpManager;
     @Override
     public int getLayoutID() {
         return R.layout.activity_login_in;
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         mEtPwd = (EditText)findViewById(R.id.et_pwd);
         mEtUserName = (EditText)findViewById(R.id.et_username);
         mBtnLogin = (TextView)findViewById(R.id.btn_login);
@@ -37,7 +42,15 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initDate() {
+         httpManager = new HttpManager(this,handler);
 
+        username =   PreferUtil.getInstance().getString("userName","");
+        pwd = PreferUtil.getInstance().getString("passWord","");
+        if (!username.equals("")&&!pwd.equals("")){
+            mEtUserName.setText(username);
+            mEtPwd.setText(pwd);
+            httpManager.login(new LoginBody(username,pwd));
+        }
     }
 
     @Override
@@ -60,9 +73,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void login(LoginBody loginBody) {
-        HttpManager httpManager = new HttpManager(this,handler);
         httpManager.login(loginBody);
     }
+    @SuppressLint("HandlerLeak")
     public Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -74,6 +87,11 @@ public class LoginActivity extends BaseActivity {
                     Toast.makeText(LoginActivity.this,failed , Toast.LENGTH_SHORT).show();
                     break;
                 case Api.LOGIN_SUCCESS:
+                    UserBean userBean = (UserBean) msg.obj;
+                    PreferUtil.getInstance().putString("userName",username);
+                    PreferUtil.getInstance().putString("passWord",pwd);
+                    PreferUtil.getInstance().putLong("createtime",userBean.getCreateTime());
+                    PreferUtil.getInstance().putInt("uid",userBean.getId());
                     Intent intent = new Intent(LoginActivity.this ,HomeActivity.class);
                     startActivity(intent);
                     finish();

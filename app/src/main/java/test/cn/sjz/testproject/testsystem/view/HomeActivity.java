@@ -1,5 +1,6 @@
 package test.cn.sjz.testproject.testsystem.view;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -43,7 +44,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
 
         //初始化view   tab
         mLlPageOne = (LinearLayout)findViewById(R.id.ll_page_1);

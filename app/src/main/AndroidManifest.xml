@@ -49,6 +49,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".testsystem.view.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".testsystem.view.RecordInDayActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>

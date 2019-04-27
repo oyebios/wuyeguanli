@@ -1,11 +1,14 @@
 package test.cn.sjz.testproject.testsystem.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.TextureView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,8 +35,9 @@ public class PatrolFragment extends BaseFragment{
     private Spinner mSpItem;
     private TextView mBtnCommit;
     private List<TypeBean> mListData = new ArrayList<>();
-    private SpinnerAdapter adapter;
+//    private SpinnerAdapter adapter;
     String item,content,advice;
+    int typeId = 1;
 
     HttpManager httpManager;
 
@@ -76,8 +80,21 @@ public class PatrolFragment extends BaseFragment{
                 }
             }
         });
+
+        mSpItem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                typeId = mListData.get(i).getId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
+    @SuppressLint("HandlerLeak")
     public Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -90,9 +107,21 @@ public class PatrolFragment extends BaseFragment{
                     break;
                 case Api.GET_TYPE_S:
                     mListData.addAll((List<TypeBean>)msg.obj);
-//                    adapter.
-                    mSpItem.setAdapter(adapter);
+                    List<String> strList = new ArrayList<>();
+                    for (int i = 0;i <mListData.size();i++){
+                        strList.add(mListData.get(i).getTypeName());
+                    }
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(mContext,android.R.layout.simple_spinner_item,strList);
+                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    mSpItem.setAdapter(arrayAdapter);
                     break;
+
+                case Api.ADD_NOTE_S:
+
+                    break;
+                case Api.ADD_NOTE_F:
+                    break;
+
             }
         }
     };

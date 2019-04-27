@@ -3,7 +3,7 @@ package test.cn.sjz.testproject.testsystem.http;
 
 
 public class Api {
-    public static String url="http://118.25.87.131:9900";
+    public static String url="http://119.27.163.190:9900";
     //登录
     public static final String url_login=url+"/app/login";
     //添加巡检信息

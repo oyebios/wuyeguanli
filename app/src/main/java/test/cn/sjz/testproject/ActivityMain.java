@@ -1,5 +1,6 @@
 package test.cn.sjz.testproject;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -36,7 +37,7 @@ public class ActivityMain extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         rl_menu = getLayoutInflater().inflate(R.layout.layout_left_menu,null);
         rlLeftMenu = (RelativeLayout) findViewById(R.id.main_left_drawer_layout);

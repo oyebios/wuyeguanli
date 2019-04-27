@@ -1,5 +1,7 @@
 package test.cn.sjz.testproject.fiction.view;
 
+import android.os.Bundle;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import test.cn.sjz.testproject.R;
@@ -22,7 +24,7 @@ public class FictionActivity extends BaseActivity implements FictionContract.Fic
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
 
     }
 

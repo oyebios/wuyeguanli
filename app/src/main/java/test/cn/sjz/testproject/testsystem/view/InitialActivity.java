@@ -1,6 +1,7 @@
 package test.cn.sjz.testproject.testsystem.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,7 +26,7 @@ public class InitialActivity extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         anim = AnimationUtils.loadAnimation(this,R.anim.scale_alpha_anim);
         mLlIcon = (LinearLayout) findViewById(R.id.ll_icon);
         mLlIcon.startAnimation(anim);
