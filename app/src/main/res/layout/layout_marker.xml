@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/marker_tv_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_blue"
+        android:gravity="center"/>
+    <test.cn.sjz.testproject.customview.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+       android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:text="&#xe8ff;"/>
+
+</LinearLayout>

@@ -15,6 +15,7 @@
     <color name="light_text_color">#5F81B5</color>
     <color name="jump_background">#10000000</color>
     <color name="gray_blue">#4A7AA2</color>
+    <color name="gray_blue_bg">#2f4A7AA2</color>
     <color name="black">#000000</color>
     <color name="title_gray">#eeeeee</color>
     <color name="light_gray">#8f626262</color>

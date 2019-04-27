@@ -2,15 +2,27 @@ package test.cn.sjz.testproject.testsystem.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.Polyline;
+import com.amap.api.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +34,6 @@ import test.cn.sjz.testproject.testsystem.http.Api;
 import test.cn.sjz.testproject.testsystem.http.HttpManager;
 import test.cn.sjz.testproject.testsystem.http.bean.RecordBean;
 import test.cn.sjz.testproject.testsystem.http.requestbody.GetListBody;
-
-/**
- * Created by lwd on 2019/4/27.
- * Explain
- */
 
 public class RecordInDayActivity extends BaseActivity {
     private TextView mTvBack,mTvTitle;
@@ -92,8 +99,66 @@ public class RecordInDayActivity extends BaseActivity {
                     break;
                 case Api.GET_LIST_S:
                     mListData.addAll((List<RecordBean>)msg.obj);
+                    drawMakers();
                     break;
             }
         }
     };
+
+    List<Marker> markerList = new ArrayList<>();
+    //绘制
+    private void drawMakers() {
+
+        List<LatLng> latLngs = new ArrayList<>();
+        for (int i = 0 ;i<mListData.size();i++){
+            LatLng latLng = new LatLng(mListData.get(i).latitude,mListData.get(i).longitude);
+            latLngs.add(latLng);
+            final Marker marker = aMap.addMarker(new MarkerOptions()
+                    .position(latLng)
+                    .title(String.valueOf(mListData.get(i).noteTypeId))
+                    .snippet(String.valueOf(mListData.get(i).id))
+                    .icon(BitmapDescriptorFactory.fromView(getMyBitmap(mListData.get(i).noteTypeId+""))));
+            markerList.add(marker);
+        }
+        Polyline polyline =aMap.addPolyline(new PolylineOptions().
+                addAll(latLngs).width(10).color(Color.argb(255, 74, 122, 162)));
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom( new LatLng(mListData.get(0).latitude,mListData.get(0).longitude),15));
+
+        // 定义 Marker 点击事件监听
+        AMap.OnMarkerClickListener markerClickListener = new AMap.OnMarkerClickListener() {
+            // marker 对象被点击时回调的接口
+            // 返回 true 则表示接口已响应事件，否则返回false
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                if (markerList.contains(marker)){
+                    Intent intent = new Intent(RecordInDayActivity.this,ReCordDetailActivity.class);
+                    RecordBean data = new RecordBean();
+                    for (int i=0;i<mListData.size();i++){
+                        if (mListData.get(i).id == Integer.parseInt(marker.getSnippet()))
+                            data = mListData.get(i);
+                    }
+                    intent.putExtra("data",data);
+                    RecordInDayActivity.this.startActivity(intent);
+                }
+                return true;
+            }
+        };
+        // 绑定 Marker 被点击事件
+        aMap.setOnMarkerClickListener(markerClickListener);
+
+    }
+
+
+    protected View  getMyBitmap(String pm_val) {
+        View view=getLayoutInflater().inflate(R.layout.layout_marker, null);
+        TextView tv_val=(TextView) view.findViewById(R.id.marker_tv_val);
+        tv_val.setText(pm_val);
+        return view;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
 }

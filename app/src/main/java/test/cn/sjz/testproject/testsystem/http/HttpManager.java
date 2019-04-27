@@ -14,6 +14,7 @@ import test.cn.sjz.testproject.testsystem.http.callback.GetDetailCallBack;
 import test.cn.sjz.testproject.testsystem.http.callback.GetListCallBack;
 import test.cn.sjz.testproject.testsystem.http.callback.GetTypeCallBack;
 import test.cn.sjz.testproject.testsystem.http.callback.LoginCallBack;
+import test.cn.sjz.testproject.testsystem.http.requestbody.AddNoteBody;
 import test.cn.sjz.testproject.testsystem.http.requestbody.GetListBody;
 import test.cn.sjz.testproject.testsystem.http.requestbody.LoginBody;
 
@@ -41,7 +42,7 @@ public class HttpManager {
 
     }
 
-    public void addnote(LoginBody body){
+    public void addnote(AddNoteBody body){
         String json=new Gson().toJson(body);
         OkHttpUtils
                 .postString()

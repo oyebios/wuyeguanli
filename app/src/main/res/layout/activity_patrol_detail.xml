@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/gray_blue_bg">
+    <include
+        layout="@layout/layout_actionbar" />
 
     <LinearLayout
         android:id="@+id/ll_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
         android:elevation="1dp"
         android:background="@color/white"
         android:paddingTop="10dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="10dp"
         android:paddingRight="15dp"
         android:paddingLeft="15dp">
         <TextView
@@ -21,14 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="巡查项目："
-        />
-        <Spinner
-            android:id="@+id/sp_item"
+            />
+        <TextView
+            android:id="@+id/tv_item"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/tv_lab_item">
-        </Spinner>
+        </TextView>
 
     </LinearLayout>
 
@@ -51,14 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="巡查说明：" />
-        <EditText
-            android:id="@+id/ev_content"
+        <TextView
+            android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
             android:padding="8dp"
             android:background="@drawable/shape_radius_8_bg_gray"
-            android:inputType="textMultiLine"
             android:gravity="left|top"/>
     </LinearLayout>
 
@@ -80,33 +80,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="巡查说明：" />
-        <EditText
-            android:id="@+id/ev_advice"
+        <TextView
+            android:id="@+id/tv_advice"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
             android:padding="8dp"
             android:background="@drawable/shape_radius_8_bg_gray"
-            android:inputType="textMultiLine"
             android:gravity="left|top"/>
     </LinearLayout>
 
 
-
-
-    <TextView
-        android:id="@+id/btn_commit"
+    <LinearLayout
+        android:id="@+id/ll_status"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:textSize="15sp"
-        android:text="提交"
-        android:clickable="true"
-        android:gravity="center"
-        android:background="@drawable/selector_btn_normal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/ll_advice"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"/>
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp">
+        <TextView
+            android:id="@+id/tv_lab_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态："
+            />
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_lab_status">
+        </TextView>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
