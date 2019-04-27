@@ -339,7 +339,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
     protected String[] needPermissions = {
             Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
     };
     private static final int PERMISSON_REQUESTCODE = 0;
 

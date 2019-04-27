@@ -90,8 +90,6 @@ public class LoginActivity extends BaseActivity {
                     UserBean userBean = (UserBean) msg.obj;
                     PreferUtil.getInstance().putString("userName",username);
                     PreferUtil.getInstance().putString("passWord",pwd);
-                    PreferUtil.getInstance().putLong("createtime",userBean.getCreateTime());
-                    PreferUtil.getInstance().putInt("uid",userBean.getId());
                     Intent intent = new Intent(LoginActivity.this ,HomeActivity.class);
                     startActivity(intent);
                     finish();

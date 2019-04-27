@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,42 +18,38 @@ import test.cn.sjz.testproject.base.baseview.BaseActivity;
 import test.cn.sjz.testproject.wuliusystem.http.Api;
 import test.cn.sjz.testproject.wuliusystem.http.HttpManager;
 import test.cn.sjz.testproject.wuliusystem.http.bean.RecordBean;
-import test.cn.sjz.testproject.wuliusystem.http.bean.TypeBean;
 
+public class AddTrackActivity extends BaseActivity {
+    private TextView mTvBack,mTvStatus,mBtnCommit;
+    private RecyclerView recyclerView;
 
-public class ReCordDetailActivity extends BaseActivity {
-    private TextView mTvItem,mTvContent,mTvAdvice,mTvStatus;
-    private TextView mTvBack;
-    private List<TypeBean> mListData = new ArrayList<>();
-    int id = -1;
-    HttpManager httpManager;
+    private HttpManager httpManager;
+    private List<RecordBean> mListData = new ArrayList<>();
+
+    String code;
     @Override
     public int getLayoutID() {
-        return R.layout.activity_patrol_detail;
+        return R.layout.activity_add_track;
     }
+
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mTvItem = (TextView)findViewById(R.id.tv_item);
-        mTvContent = (TextView)findViewById(R.id.tv_content);
-        mTvAdvice= (TextView)findViewById(R.id.tv_advice);
         mTvBack = (TextView)findViewById(R.id.tv_back);
-        mTvStatus = (TextView)findViewById(R.id.tv_status);
     }
 
     @Override
     public void initDate() {
-        Intent intent = getIntent();
-        RecordBean data = (RecordBean)intent.getSerializableExtra("data");
-        if (data!=null){
-            id = data.noteTypeId;
-            mTvContent.setText(data.content);
-            mTvAdvice.setText(data.treatment);
-            mTvStatus.setText(data.reviewContent);
-        }
-        httpManager = new HttpManager(this ,handler);
-        httpManager.gettype();
 
+        Intent intent = getIntent();
+        code = intent.getStringExtra("code");
+        httpManager = new HttpManager(this,handler);
+
+        if (code != null && code.equals(""))
+        {
+            httpManager.gettrack(code);
+        }
+        else Toast.makeText(this, "code为空，请重新操作", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -72,19 +69,20 @@ public class ReCordDetailActivity extends BaseActivity {
             super.handleMessage(msg);
             switch (msg.what){
                 case Api.FAILED:
-                case Api.GET_TYPE_F:
+                case Api.GET_INFO_F:
+                case Api.ADD_TRACK_F:
                     String failed=(String )msg.obj;
-                    Toast.makeText(ReCordDetailActivity.this,failed , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTrackActivity.this,failed , Toast.LENGTH_SHORT).show();
                     break;
-                case Api.GET_TYPE_S:
-                    mListData.addAll((List<TypeBean>)msg.obj);
-                    for (int i = 0;i <mListData.size();i++){
-                       if (mListData.get(i).getId() == id ){
-                           mTvItem.setText(mListData.get(i).getTypeName());
-                       }
-                    }
+                case Api.GET_INFO_S:
+
+
+                    break;
+                case Api.ADD_TRACK_S:
+                    Toast.makeText(AddTrackActivity.this,"成功" , Toast.LENGTH_SHORT).show();
                     break;
             }
         }
     };
+
 }

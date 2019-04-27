@@ -10,14 +10,14 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
         <TextView
-            android:text="物业管理系统"
+            android:text="物流信息管理"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_blue"
             android:textSize="30sp"
             android:layout_gravity="center_horizontal"/>
         <TextView
-            android:text="智能服务平台"
+            android:text="让物流变得更简单"
             android:textColor="@color/gray_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

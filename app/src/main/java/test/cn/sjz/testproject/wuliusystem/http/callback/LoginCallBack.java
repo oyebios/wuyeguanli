@@ -48,8 +48,6 @@ public class LoginCallBack extends StringCallback {
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("success") && jsonObject.getBoolean("success") ) {
                     msg.what = Api.LOGIN_SUCCESS;
-                    UserBean userBean = new Gson().fromJson(jsonObject.getString("data"),UserBean.class);
-                    msg.obj =userBean;
 
                 } else {
                     if (jsonObject.has("message")) {

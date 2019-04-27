@@ -7,14 +7,14 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import okhttp3.MediaType;
-import test.cn.sjz.testproject.wuliusystem.http.callback.AddNoteCallBack;
-import test.cn.sjz.testproject.wuliusystem.http.callback.GetCountCallBack;
-import test.cn.sjz.testproject.wuliusystem.http.callback.GetDetailCallBack;
-import test.cn.sjz.testproject.wuliusystem.http.callback.GetListCallBack;
-import test.cn.sjz.testproject.wuliusystem.http.callback.GetTypeCallBack;
+import test.cn.sjz.testproject.wuliusystem.http.callback.AddTrackInfoCallBack;
+import test.cn.sjz.testproject.wuliusystem.http.callback.AutoEntryCallBack;
+import test.cn.sjz.testproject.wuliusystem.http.callback.GetTrackInfoCallBack;
+import test.cn.sjz.testproject.wuliusystem.http.callback.HandEntryCallBack;
 import test.cn.sjz.testproject.wuliusystem.http.callback.LoginCallBack;
-import test.cn.sjz.testproject.wuliusystem.http.requestbody.AddNoteBody;
-import test.cn.sjz.testproject.wuliusystem.http.requestbody.GetListBody;
+import test.cn.sjz.testproject.wuliusystem.http.requestbody.AddTrackBody;
+import test.cn.sjz.testproject.wuliusystem.http.requestbody.AutoEntryBody;
+import test.cn.sjz.testproject.wuliusystem.http.requestbody.HandEntryBody;
 import test.cn.sjz.testproject.wuliusystem.http.requestbody.LoginBody;
 
 /**
@@ -41,56 +41,51 @@ public class HttpManager {
 
     }
 
-    public void addnote(AddNoteBody body){
+    public void addtrack(AddTrackBody body){
         String json=new Gson().toJson(body);
         OkHttpUtils
                 .postString()
-                .url(Api.url_add_note)
+                .url(Api.url_add_track_info)
                 .mediaType(MediaType.parse("application/json; charset=utf-8"))
                 .content(json)
                 .build()
-                .execute(new AddNoteCallBack(activity, handler));
+                .execute(new AddTrackInfoCallBack(activity, handler));
 
     }
 
-    public void getlist(GetListBody body){
+    public void autoentry(AutoEntryBody body){
         String json=new Gson().toJson(body);
         OkHttpUtils
                 .postString()
-                .url(Api.url_get_list)
+                .url(Api.url_auto_entry)
                 .mediaType(MediaType.parse("application/json; charset=utf-8"))
                 .content(json)
                 .build()
-                .execute(new GetListCallBack(activity, handler));
+                .execute(new AutoEntryCallBack(activity, handler));
 
     }
 
-    public void gettype(){
-        OkHttpUtils
-                .get()
-                .url(Api.url_get_note_type)
-                .build()
-                .execute(new GetTypeCallBack(activity, handler));
-
-    }
-
-    public void getdetail(int id){
-        String url = Api.url_get_detail + String.valueOf(id);
+    public void gettrack(String code){
+        String url = Api.url_get_track_info + code;
         OkHttpUtils
                 .get()
                 .url(url)
                 .build()
-                .execute(new GetDetailCallBack(activity, handler));
+                .execute(new GetTrackInfoCallBack(activity, handler));
 
     }
 
-    public void getcount(int uid){
-        String url = Api.url_get_count + String.valueOf(uid);
+    public void handentry(HandEntryBody body){
+        String json=new Gson().toJson(body);
         OkHttpUtils
-                .get()
-                .url(url)
+                .postString()
+                .url(Api.url_manual_entry)
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .content(json)
                 .build()
-                .execute(new GetCountCallBack(activity, handler));
+                .execute(new HandEntryCallBack(activity, handler));
+
     }
+
 
 }

@@ -13,21 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import okhttp3.Call;
 import test.cn.sjz.testproject.wuliusystem.http.Api;
-import test.cn.sjz.testproject.wuliusystem.http.bean.RecordListBean;
 
 /**
- * Explain 统计信息回调
+ * Explain 获取类型回调
  */
 
-public class GetCountCallBack extends StringCallback {
+public class GetTrackInfoCallBack extends StringCallback {
     private Context context;
     private Handler handler;
 
-    public GetCountCallBack(Context context, Handler handler) {
+    public GetTrackInfoCallBack(Context context, Handler handler) {
         this.context = context;
         this.handler = handler;
     }
@@ -50,19 +47,27 @@ public class GetCountCallBack extends StringCallback {
                 Message msg = new Message();
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("success") && jsonObject.getBoolean("success") ) {
-                    msg.what = Api.GET_COUNT_S;
-                    List<RecordListBean> datalist = new ArrayList<>();
-                    JSONArray data = jsonObject.getJSONArray("data");
-                    for (int i = 0;i<data.length();i++){
-                        RecordListBean item = new Gson().fromJson(data.getJSONObject(i).toString(),RecordListBean.class);
-                        datalist.add(item);
-                    }
-                    msg.obj = datalist;
 
+                    if (jsonObject.has("data")&&!jsonObject.getString("data").equals("")){
+                        msg.what = Api.GET_INFO_S;
+//                        List<TypeBean> datalist = new ArrayList<>();
+//                        JSONArray data = jsonObject.getJSONArray("data");
+//                        for (int i = 0;i<data.length();i++){
+//                            TypeBean item = new Gson().fromJson(data.getJSONObject(i).toString(),TypeBean.class);
+//                            datalist.add(item);
+//                        }
+//                        msg.obj = datalist;
+                    }else {
+                        if (jsonObject.has("message")) {
+                            errorString = jsonObject.getString("message");
+                            msg.what = Api.GET_INFO_F;
+                            msg.obj = errorString;
+                        }
+                    }
                 } else {
                     if (jsonObject.has("message")) {
                         errorString = jsonObject.getString("message");
-                        msg.what = Api.GET_COUNT_S;
+                        msg.what = Api.GET_INFO_F;
                         msg.obj = errorString;
                     }
                 }
@@ -71,5 +76,6 @@ public class GetCountCallBack extends StringCallback {
                 e.printStackTrace();
             }
         }
+
     }
 }

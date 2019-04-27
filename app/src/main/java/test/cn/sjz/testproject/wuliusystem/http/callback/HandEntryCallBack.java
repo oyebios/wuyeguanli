@@ -4,30 +4,22 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-
-import com.google.gson.Gson;
 import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import okhttp3.Call;
 import test.cn.sjz.testproject.wuliusystem.http.Api;
-import test.cn.sjz.testproject.wuliusystem.http.bean.RecordBean;
+
 
 /**
- * Explain 获取记录
+ * Explain 统计信息回调
  */
 
-public class GetListCallBack extends StringCallback {
+public class HandEntryCallBack extends StringCallback {
     private Context context;
     private Handler handler;
 
-    public GetListCallBack(Context context, Handler handler) {
+    public HandEntryCallBack(Context context, Handler handler) {
         this.context = context;
         this.handler = handler;
     }
@@ -50,27 +42,11 @@ public class GetListCallBack extends StringCallback {
                 Message msg = new Message();
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("success") && jsonObject.getBoolean("success") ) {
-
-                    if (jsonObject.has("data")&&!jsonObject.getString("data").equals("")){
-                        msg.what = Api.GET_LIST_S;
-                        List<RecordBean> datalist = new ArrayList<>();
-                        JSONArray data = jsonObject.getJSONArray("data");
-                        for (int i = 0;i<data.length();i++){
-                            RecordBean item = new Gson().fromJson(data.getJSONObject(i).toString(),RecordBean.class);
-                            datalist.add(item);
-                        }
-                        msg.obj = datalist;
-                    }else {
-                        if (jsonObject.has("message")) {
-                            errorString = jsonObject.getString("message");
-                            msg.what = Api.GET_LIST_F;
-                            msg.obj = errorString;
-                        }
-                    }
+                    msg.what = Api.HAND_ENTRY_S;
                 } else {
                     if (jsonObject.has("message")) {
                         errorString = jsonObject.getString("message");
-                        msg.what = Api.GET_TYPE_F;
+                        msg.what = Api.HAND_ENTRY_F;
                         msg.obj = errorString;
                     }
                 }
@@ -79,6 +55,5 @@ public class GetListCallBack extends StringCallback {
                 e.printStackTrace();
             }
         }
-
     }
 }

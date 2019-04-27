@@ -20,6 +20,7 @@
     <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:name=".base.MyApplication"
         android:allowBackup="true"
@@ -42,16 +43,27 @@
         <activity android:name=".ActivityMain">
         </activity>
 
+        <!--//物业-->
         <activity android:name=".testsystem.view.HomeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".testsystem.view.InitialActivity" android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".testsystem.view.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".testsystem.view.RecordInDayActivity" android:screenOrientation="portrait" />
+        <activity android:name=".testsystem.view.ReCordDetailActivity" android:screenOrientation="portrait" />
+
+
+        <!--//物流-->
+        <activity android:name=".wuliusystem.view.AddTrackActivity"  android:screenOrientation="portrait" />
+        <activity android:name=".wuliusystem.view.InitialActivity" android:screenOrientation="portrait"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".testsystem.view.LoginActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".testsystem.view.RecordInDayActivity" android:screenOrientation="portrait" />
-        <activity android:name=".testsystem.view.ReCordDetailActivity" android:screenOrientation="portrait" />
+        <activity android:name=".wuliusystem.view.HomeActivity"  android:screenOrientation="portrait" />
+        <activity android:name=".wuliusystem.view.LoginActivity" android:screenOrientation="portrait"  />
+
         <service android:name="com.amap.api.location.APSService"></service>
     </application>
 

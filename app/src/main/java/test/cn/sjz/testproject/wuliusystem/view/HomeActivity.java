@@ -1,6 +1,7 @@
 package test.cn.sjz.testproject.wuliusystem.view;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,12 +10,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,68 +25,107 @@ import java.util.List;
 
 import test.cn.sjz.testproject.R;
 import test.cn.sjz.testproject.base.baseview.BaseActivity;
-import test.cn.sjz.testproject.customview.FontTextView;
+import test.cn.sjz.testproject.wuliusystem.http.Api;
+import test.cn.sjz.testproject.wuliusystem.http.HttpManager;
+import test.cn.sjz.testproject.wuliusystem.http.requestbody.HandEntryBody;
 
-public class HomeActivity extends BaseActivity implements View.OnClickListener {
+public class HomeActivity extends BaseActivity {
 
-
-
-    //tab底部栏的控件
-    private LinearLayout mLlPageOne;
-    private LinearLayout mLlPageTwo;
-    private LinearLayout mLlPageThree;
-
-    private FontTextView mFtvPage1;
-    private FontTextView mFtvPage2;
-    private FontTextView mFtvPage3;
-
-    private TextView mTvPage1;
-    private TextView mTvPage2;
-    private TextView mTvPage3;
-
-
-    private PatrolFragment patrolFragment;
-    private RecordFragment recordFragment;
-    private MeFragment meFragment;
-
+    private EditText mEtCode;
+    private EditText mEtName1,mEtPhone1,mEtAddr1;
+    private EditText mEtName2,mEtPhone2,mEtAddr2;
+    private TextView mBtnCommit;
     private long exitTime;
 
+    String sname, sphone,saddress ;
+    String rname, rphone,raddress ;
+    String code;
+
+    private HttpManager httpManager ;
     @Override
     public int getLayoutID() {
-        return R.layout.activity_home_page;
+        return R.layout.activity_hand_entry;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        mEtCode = (EditText)findViewById(R.id.et_code);
 
-        //初始化view   tab
-        mLlPageOne = (LinearLayout)findViewById(R.id.ll_page_1);
-        mLlPageTwo = (LinearLayout)findViewById(R.id.ll_page_2);
-        mLlPageThree = (LinearLayout)findViewById(R.id.ll_page_3);
+        mEtName1 = (EditText)findViewById(R.id.et_sender_name);
+        mEtPhone1 = (EditText)findViewById(R.id.et_sender_phone);
+        mEtAddr1 = (EditText)findViewById(R.id.et_sender_address);
 
-        mFtvPage1 = (FontTextView)findViewById(R.id.ftv_page_1);
-        mFtvPage2 = (FontTextView)findViewById(R.id.ftv_page_2);
-        mFtvPage3 = (FontTextView)findViewById(R.id.ftv_page_3);
+        mEtName2 = (EditText)findViewById(R.id.et_rec_name);
+        mEtPhone2 = (EditText)findViewById(R.id.et_rec_phone);
+        mEtAddr2 = (EditText)findViewById(R.id.et_rec_address);
 
-        mTvPage1 = (TextView)findViewById(R.id.tv_page_1);
-        mTvPage2 = (TextView)findViewById(R.id.tv_page_2);
-        mTvPage3 = (TextView)findViewById(R.id.tv_page_3);
-
-
+        mBtnCommit = (TextView)findViewById(R.id.btn_commit);
 
     }
 
     @Override
     public void initDate() {
-        select(0);
+        httpManager = new HttpManager(this,handler);
     }
 
     @Override
     public void iniListener() {
-        mLlPageOne.setOnClickListener(this);
-        mLlPageTwo.setOnClickListener(this);
-        mLlPageThree.setOnClickListener(this);
+        mBtnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                code = mEtCode.getText().toString().trim();
+
+                sname = mEtName1.getText().toString().trim();
+                sphone = mEtPhone1.getText().toString().trim();
+                saddress = mEtAddr1.getText().toString().trim();
+
+                rname = mEtName2.getText().toString().trim();
+                rphone = mEtPhone2.getText().toString().trim();
+                raddress = mEtAddr2.getText().toString().trim();
+
+                if (code.equals("") ||sname.equals("") ||sphone.equals("") ||saddress.equals("") ||rname.equals("") ||rphone.equals("") ||raddress.equals("")){
+                    Toast.makeText(HomeActivity.this, "信息不能为空", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeActivity.this ,AddTrackActivity.class);
+                    intent.putExtra("code",code);
+                    startActivity(intent);
+                }else {
+                    HandEntryBody body = new HandEntryBody();
+                    body.setCode(code);
+                    body.setSender(sname);
+                    body.setSenderMobile(sphone);
+                    body.setSenderAddress(saddress);
+                    body.setRecipient(rname);
+                    body.setRecipientMobile(rphone);
+                    body.setRecipientAddress(raddress);
+                    httpManager.handentry(body);
+                }
+            }
+        });
     }
+
+    @SuppressLint("HandlerLeak")
+    public Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case Api.FAILED:
+                case Api.AUTO_ENTRY_F:
+                case Api.HAND_ENTRY_F:
+                    String failed=(String )msg.obj;
+                    Toast.makeText(HomeActivity.this,failed , Toast.LENGTH_SHORT).show();
+                    break;
+                case Api.HAND_ENTRY_S:
+                case Api.AUTO_ENTRY_S:
+                    Intent intent = new Intent(HomeActivity.this ,AddTrackActivity.class);
+                    intent.putExtra("code",code);
+                    startActivity(intent);
+                    finish();
+                    break;
+            }
+        }
+    };
+
 
 
     @Override
@@ -93,92 +133,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         super.onResume();
     }
 
-
-//
-    public void select(int id) {
-        resetTab();
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        hideFragment(transaction);
-
-        // 点击高亮
-        switch (id) {
-            case 0:
-                if (patrolFragment == null) {
-                    patrolFragment = new PatrolFragment();
-                    transaction.add(R.id.rl_content, patrolFragment);
-                } else {
-                    transaction.show(patrolFragment);
-                }
-                mFtvPage1.setTextColor(getResources().getColor(R.color.light_text_color));
-                mTvPage1.setTextColor(getResources().getColor(R.color.light_text_color));
-
-                break;
-            case 1:
-                if (recordFragment == null) {
-                    recordFragment = new RecordFragment();
-                    transaction.add(R.id.rl_content, recordFragment);
-                } else {
-                    transaction.show(recordFragment);
-                }
-                mFtvPage2.setTextColor(getResources().getColor(R.color.light_text_color));
-                mTvPage2.setTextColor(getResources().getColor(R.color.light_text_color));
-                break;
-            case 2:
-                if (meFragment == null) {
-                    meFragment = new MeFragment();
-                    transaction.add(R.id.rl_content, meFragment);
-
-                } else {
-                    transaction.show(meFragment);
-                }
-                mFtvPage3.setTextColor(getResources().getColor(R.color.light_text_color));
-                mTvPage3.setTextColor(getResources().getColor(R.color.light_text_color));
-                break;
-            default:
-                break;
-        }
-
-        transaction.commit();
-    }
-
-    private void hideFragment(FragmentTransaction transaction) {
-        if (patrolFragment != null) {
-            transaction.hide(patrolFragment);
-        }
-        if (recordFragment != null) {
-            transaction.hide(recordFragment);
-        }
-        if (meFragment != null) {
-            transaction.hide(meFragment);
-
-        }
-    }
-
-    public void resetTab() {
-        mFtvPage1.setTextColor(getResources().getColor(R.color.light_gray));
-        mFtvPage2.setTextColor(getResources().getColor(R.color.light_gray));
-        mFtvPage3.setTextColor(getResources().getColor(R.color.light_gray));
-        mTvPage1.setTextColor(getResources().getColor(R.color.light_gray));
-        mTvPage2.setTextColor(getResources().getColor(R.color.light_gray));
-        mTvPage3.setTextColor(getResources().getColor(R.color.light_gray));
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ll_page_1:
-                select(0);
-                break;
-            case R.id.ll_page_2:
-                select(1);
-                break;
-            case R.id.ll_page_3:
-                select(2);
-                break;
-        }
-    }
     /** 监听手机按键 */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -337,8 +291,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         startActivity(intent);
     }
     protected String[] needPermissions = {
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CAMERA
     };
     private static final int PERMISSON_REQUESTCODE = 0;
 
