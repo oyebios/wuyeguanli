@@ -33,39 +33,21 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="1ff71c4f95da1c4c25bbba0c7471ae58"/>
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".Login.view.LoginActivity">
-
-        </activity>
-        <activity android:name=".AcitivtyAscII"/>
-        <activity android:name=".fiction.view.FictionActivity"/>
-        <activity android:name=".Music.ActivityPiano"/>
-        <activity android:name=".ActivityMain">
-        </activity>
 
         <!--//物业-->
         <activity android:name=".testsystem.view.HomeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".testsystem.view.InitialActivity" android:screenOrientation="portrait">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".testsystem.view.LoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".testsystem.view.RecordInDayActivity" android:screenOrientation="portrait" />
         <activity android:name=".testsystem.view.ReCordDetailActivity" android:screenOrientation="portrait" />
 
 
-        <!--//物流-->
-        <activity android:name=".wuliusystem.view.AddTrackActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".wuliusystem.view.InitialActivity" android:screenOrientation="portrait"  >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".wuliusystem.view.HomeActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".wuliusystem.view.LoginActivity" android:screenOrientation="portrait"  />
-        <activity android:name=".zbar.CaptureActivity" />
+
 
         <service android:name="com.amap.api.location.APSService"></service>
     </application>
